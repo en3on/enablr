@@ -25,11 +25,9 @@ Things you may want to cover:
 
 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
-    The need we will be addressing in the project is...
-
 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
     
-    The problem we are trying to solve is giving tech startups access to funding from potential investors. It is a problem that needs solving because on websites like kickstarter there are a ton of categories with thousands of projects in each category which can make it hard for tech projects to get any exposure. By limiting it to tech startups we can categorise projects into specific kinds of technologies.
+    The problem we are trying to solve is giving tech startups access to funding from potential investors. It is a problem that needs solving because on similar websites like kickstarter there are a ton of categories with thousands of projects in each category which can make it hard for tech projects to get any exposure. By limiting it to tech startups we can categorise projects into specific kinds of technologies.
 
 3. Describe the project you will be conducting and how your App will address the needs.
 
@@ -51,13 +49,9 @@ Things you may want to cover:
 
 8. Describe the architecture of your App.
 
-    
-
 9.  Explain the different high-level components (abstractions) in your App.
 
 10.  Detail any third party services that your App will use.
-
-    Third party services our app will use is Mailer
 
 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
@@ -65,40 +59,37 @@ Things you may want to cover:
 
 12. Discuss the database relations to be implemented.
 
-Comment
-
-
 Enabler
-:has_many :comments
+Has many comments
 
 Perk
-:has_many :enablers
+Has many enablers
 
 Project
-:has_many :enablers
-:has_many :perks
+Has many enablers
+Has many perks
 
 User
-:has_one :enablers
-:has_many :projects
+Has one enabler
+Has many projects
 
-13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+13.  Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
-14. Provide your database schema design.
+14.  Provide your database schema design.
 
-15. Provide User stories for your App.
+15.  Provide User stories for your App.
 
-16. Provide Wireframes for your App.
+16.  Provide Wireframes for your App.
 
-17. Describe the way tasks are allocated and tracked in your project.
+17.  Describe the way tasks are allocated and tracked in your project.
 
-18. Discuss how Agile methodology is being implemented in your project.
+18.  Discuss how Agile methodology is being implemented in your project.
 
-19. Provide an overview and description of your Source control process.
+19.  Provide an overview and description of your Source control process.
 
-20. Provide an overview and description of your Testing process.
+20.  Provide an overview and description of your Testing process.
 
-21. Discuss and analyse requirements related to information system security.
+21.  Discuss and analyse requirements related to information system security.
 
 22. Discuss methods you will use to protect information and data.
 
