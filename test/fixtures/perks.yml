@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  minimum_amount: 1
+  unlimited: false
+  enablr_amount: 1
+
+two:
+  minimum_amount: 1
+  unlimited: false
+  enablr_amount: 1
