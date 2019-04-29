@@ -1,0 +1,2 @@
+class EnablersController < ApplicationController
+end
