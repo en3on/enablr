@@ -5,6 +5,12 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
+  test 'should get sign up page' do
+    get new_user_registration_path
+
+    assert_response :success
+  end
+
   test 'should create new user' do
     post user_registration_path, params: {
       email: @user.email,
@@ -19,5 +25,13 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
   end
-  
+
+  test 'should delete user' do
+    @user = User.last
+
+    User.destroy(@user.id)
+
+    assert_not_includes(User.all, @user, 'user was found in the database')
+  end
+
 end
