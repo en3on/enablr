@@ -11,7 +11,6 @@ one:
   created_at: "1 Jan 2019 08:00:00"
   updated_at: "2 Jan 2019 08:00:00"
   first_name: "user"
-  first_name: "user"
   last_name: "userless"
   fundraiser: "true"
   country: "Australia"
