@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# projects controller
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
@@ -44,7 +47,8 @@ class ProjectsController < ApplicationController
   end
 
   private
+
   def project_params
-    params.permit([:name, :description])
+    params.permit(%i[name description])
   end
 end
