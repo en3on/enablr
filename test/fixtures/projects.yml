@@ -4,22 +4,18 @@ software_1:
   name: 'first software project' 
   description: 'first software project description'
   hardware: false
-  current_amount: 50_000 
   target_amount: 100_000
   target_date: '20 Apr 2020' 
   category: 'App' 
   country: 'USA' 
   city: 'New York' 
-  backer_amount: 10_203 
 
 hardware_1:
   name: 'first hardware project' 
   description: 'first hardware project description'
   hardware: true 
-  current_amount: 1
   target_amount: 25_000
   target_date: '31 May 2021' 
   category: 'Console' 
   country: 'UK' 
   city: 'Hull' 
-  backer_amount: 1

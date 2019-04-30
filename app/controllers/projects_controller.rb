@@ -30,25 +30,24 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @user = User.find(@project.user_id)
 
-    if @project.update(project_params)
-      redirect_to @project
-    else
-      render 'edit'
-    end
+    @user.projects.update(project_params)
   end
 
   def destroy
-    project = Project.find(params[:id])
+    @project = Project.find(params[:id])
 
-    Project.destroy(project)
+    @user = User.find(@project.user_id)
 
-    redirect_to 'index'
+    @user.projects.destroy(@project)
+
+    redirect_to root_path
   end
 
   private
-
   def project_params
-    params.permit(%i[name description])
+    params.permit(:name, :description, :hardware, :target_amount, :target_date, :category, :country, :city)
   end
+
 end
