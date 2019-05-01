@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   validates :target_amount, presence: true, numericality: { greater_than: 0 }
   validates :target_date, presence: true
+  validates :country, presence: true
 
   has_many :enablers, dependent: :destroy
   has_many :perks, dependent: :destroy

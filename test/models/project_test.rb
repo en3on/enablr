@@ -44,4 +44,10 @@ class ProjectTest < ActiveSupport::TestCase
     refute @project.valid?
     assert_not_nil @project.errors[:target_date], 'no validation error for target_date presence'
   end
+
+  test 'invalid without country' do
+    @project.country = nil
+    refute @project.valid?
+    assert_not_nil @project.errors[:country], 'no validation error for country presence'
+  end
 end
