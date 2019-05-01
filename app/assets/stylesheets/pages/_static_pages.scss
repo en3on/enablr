@@ -1,0 +1,26 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.banner {
+  color: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 96px;
+    font-family: sans-serif;
+  }
+  p {
+    font-family: sans-serif;
+  }
+  .btn {
+    margin-right: 20px;
+  }
+}
+
+
+
+
+
