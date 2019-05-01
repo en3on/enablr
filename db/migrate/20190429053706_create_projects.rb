@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.boolean :hardware
       t.integer :current_amount
       t.integer :target_amount
-      t.string :target_date
+      t.timestamp :target_date
       t.string :category
       t.string :country
       t.string :city
