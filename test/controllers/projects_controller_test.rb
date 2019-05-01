@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   def create_project(user, project)
     @project = user.projects.new(create_project_params(project))
 
@@ -27,6 +29,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test 'should create new software project' do
     project = projects(:software)
     user = users(:fundraiser)
+
+    sign_in user
 
     project_params = create_project_params(project)
 
@@ -69,18 +73,24 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new_project' do
+    user = users(:fundraiser)
+
+    sign_in user
+
     get new_project_path
 
     assert_response :success
   end
 
   test 'should get edit_project' do
-    create_project(users(:fundraiser), projects(:hardware))
+    user = users(:fundraiser)
+    project = projects(:software)
+    create_project(user, project)
 
-    user_id = @project.user_id
+    sign_in user
 
     get edit_project_path(
-      user_id: user_id,
+      user_id: user.id,
       id: @project.id
     )
 
@@ -104,6 +114,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     user = users(:fundraiser)
     project_params = projects(:hardware)
 
+    sign_in user
+
     create_project(user, project_params)
 
     assert_difference('user.projects.count', -1) do
@@ -117,6 +129,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test 'should change project name' do
     user = users(:fundraiser)
     project_params = projects(:software)
+
+    sign_in user
 
     create_project(user, project_params)
 
@@ -136,7 +150,17 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "standard user can't create project" do
+    user = users(:standard)
+    project_params = create_project_params(projects(:hardware))
 
+    sign_in user
+
+    assert_raises(CanCan::AccessDenied) do
+      post user_projects_path(
+        user_id: user.id,
+        project: project_params
+      )
+    end
   end
 end
 
