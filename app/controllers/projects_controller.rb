@@ -2,6 +2,8 @@
 
 # projects controller
 class ProjectsController < ApplicationController
+  authorize_resource
+
   def index
     @projects = Project.all
   end

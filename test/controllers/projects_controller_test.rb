@@ -136,7 +136,10 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "standard user can't create project" do
+    user = users(:standard)
+    create_project(user, projects(:software))
 
+    assert_equal(0, user.projects.count, 'Standard user was allowed to create project')
   end
 end
 
