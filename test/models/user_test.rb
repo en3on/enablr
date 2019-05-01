@@ -27,6 +27,5 @@ class UserTest < ActiveSupport::TestCase
     @user.city = nil
     refute @user.valid?
     assert_not_nil @user.errors[:city], 'no validation error for city presence'
-
   end
 end
