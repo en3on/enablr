@@ -49,8 +49,9 @@ RSpec.describe Project, type: :model do
     end
 
     it 'is invalid without a category' do
-      pending("to be completed")
-      fail
+      project.category = nil
+      expect(project).to_not be_valid
     end
+
   end
 end

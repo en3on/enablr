@@ -2,6 +2,13 @@ require 'date'
 
 class Project < ApplicationRecord
   validates :name, :description, :target_amount, :target_date, presence: true
+
+  validates :name,
+            :description,
+            :target_amount,
+            :target_date,
+            :category,
+            presence: true
   
   validates :description, length: { maximum: 500 }
 
