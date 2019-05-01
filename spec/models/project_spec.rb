@@ -44,7 +44,6 @@ RSpec.describe Project, type: :model do
     end
 
     it 'is invalid with a target_date in the past' do
-      pending('validation getting finished')
       project.target_date = '1 January 2010'
       expect(project).to_not be_valid
     end
