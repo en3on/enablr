@@ -47,5 +47,10 @@ RSpec.describe Project, type: :model do
       project.target_date = '1 January 2010'
       expect(project).to_not be_valid
     end
+
+    it 'is invalid without a category' do
+      pending("to be completed")
+      fail
+    end
   end
 end
