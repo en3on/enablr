@@ -1,4 +1,8 @@
 class Project < ApplicationRecord
+  validates :description, length: { maximum: 500 }
+  validates :hardware, presence: true
+  validates :target_amount, presence: true
+
   has_many :enablers, dependent: :destroy
   has_many :perks, dependent: :destroy
 
