@@ -8,10 +8,8 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.fundraiser?
-        puts 'Is fundraiser'
-        can :manage, Projects, user_id: user.id
+        can :manage, Project, user_id: user.id
       else
-        puts 'Is not fundraiser'
         can :read, :all
         can :manage, User, id: user.id
       end

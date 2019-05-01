@@ -1,13 +1,13 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   def create_project(user, project)
     @project = user.projects.new(create_project_params(project))
 
     @project.save
   end
-
-
 
   def create_project_params(project)
     {
@@ -29,6 +29,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test 'should create new software project' do
     project = projects(:software)
     user = users(:fundraiser)
+
+    sign_in user
 
     project_params = create_project_params(project)
 
@@ -120,6 +122,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     user = users(:fundraiser)
     project_params = projects(:software)
 
+    sign_in user
+
     create_project(user, project_params)
 
     @project.name = 'changed'
@@ -139,9 +143,16 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "standard user can't create project" do
     user = users(:standard)
-    create_project(user, projects(:software))
+    project_params = create_project_params(projects(:hardware))
 
-    assert_equal(0, user.projects.count, 'Standard user was allowed to create project')
+    sign_in user
+
+    assert_raises(CanCan::AccessDenied) do
+      post user_projects_path(
+        user_id: user.id,
+        project: project_params
+      )
+    end
   end
 end
 
