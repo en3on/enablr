@@ -26,8 +26,8 @@ class Project < ApplicationRecord
     formatted_date = target_date.to_datetime
     target_date = formatted_date
 
-    if target_date <= DateTime.now
-      errors[:target_date] << 'Target Date must be in the future'
-    end
+    return if target_date > DateTime.now
+
+    errors[:target_date] << 'Target Date must be in the future'
   end
 end
