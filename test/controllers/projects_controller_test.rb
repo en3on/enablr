@@ -7,6 +7,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     @project.save
   end
 
+
+
   def create_project_params(project)
     {
       name: project.name,
