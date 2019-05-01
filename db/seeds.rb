@@ -8,3 +8,43 @@
 
 puts 'Start of seeding'
 
+# Create users
+
+params = {
+  email: Faker::Internet.email,
+  password: 'password',
+  password_confirmation: 'password',
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  fundraiser: true,
+  country: Faker::Address.country,
+  city: Faker::Address.city
+}
+
+user = User.new(params)
+
+puts "Creating user #{user.first_name}"
+
+user.save
+
+
+# Create Projects
+
+params = {
+  name: 'software project',
+  description: 'first software project',
+  hardware: 'false',
+  target_amount: '100_000',
+  target_date: '20 Apr 2020',
+  category: 'App',
+  country: 'Australia',
+  city: 'Melbourne'
+}
+
+project = user.projects.new(params)
+
+puts "Creating project #{project.name}"
+
+project.save
+
+puts 'Seeding complete'
