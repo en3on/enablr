@@ -73,18 +73,24 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new_project' do
+    user = users(:fundraiser)
+
+    sign_in user
+
     get new_project_path
 
     assert_response :success
   end
 
   test 'should get edit_project' do
-    create_project(users(:fundraiser), projects(:hardware))
+    user = users(:fundraiser)
+    project = projects(:software)
+    create_project(user, project)
 
-    user_id = @project.user_id
+    sign_in user
 
     get edit_project_path(
-      user_id: user_id,
+      user_id: user.id,
       id: @project.id
     )
 
@@ -107,6 +113,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test 'should delete project' do
     user = users(:fundraiser)
     project_params = projects(:hardware)
+
+    sign_in user
 
     create_project(user, project_params)
 
