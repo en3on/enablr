@@ -50,6 +50,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'faker'
+
+  gem 'rspec-rails'
+
+  gem 'factory_bot_rails'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -64,6 +70,8 @@ group :development do
   gem 'binding_of_caller'
 
   gem 'pry-rails'
+
+  gem 'guard-rspec', require: false
 end
 
 group :test do
