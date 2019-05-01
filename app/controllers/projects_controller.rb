@@ -11,10 +11,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    user = User.find(params[:user_id])
 
-    if @project.save
-      redirect_to @project
+    project = user.projects.new(project_params(params[:project]))
+
+    if project.save
+      # redirect_to project
+      puts 'saved'
     else
       render 'new'
     end
@@ -29,24 +32,22 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
-    @user = User.find(@project.user_id)
+    user = User.find(params[:user_id])
+    project = user.projects.find(params[:id])
 
-    @user.projects.update(project_params)
+    project.update(project_params(params[:project]))
+
+    redirect_to project
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    user = User.find(params[:user_id])
 
-    @user = User.find(@project.user_id)
-
-    @user.projects.destroy(@project)
-
-    redirect_to root_path
+    user.projects.destroy(params[:id])
   end
 
   private
-  def project_params
+  def project_params(params)
     params.permit(:name, :description, :hardware, :target_amount, :target_date, :category, :country, :city)
   end
 

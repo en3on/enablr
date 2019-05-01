@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-software_1:
+software:
   name: 'first software project' 
   description: 'first software project description'
   hardware: false
@@ -10,7 +10,7 @@ software_1:
   country: 'USA' 
   city: 'New York' 
 
-hardware_1:
+hardware:
   name: 'first hardware project' 
   description: 'first hardware project description'
   hardware: true 
