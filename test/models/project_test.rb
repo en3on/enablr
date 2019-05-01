@@ -50,4 +50,10 @@ class ProjectTest < ActiveSupport::TestCase
     refute @project.valid?
     assert_not_nil @project.errors[:country], 'no validation error for country presence'
   end
+
+  test 'invalid without city' do
+    @project.city = nil
+    refute @project.valid?
+    assert_not_nil @project.errors[:city], 'no validation error for city presence'
+  end
 end

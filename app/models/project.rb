@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   validates :target_amount, presence: true, numericality: { greater_than: 0 }
   validates :target_date, presence: true
   validates :country, presence: true
+  validates :city, presence: true
 
   has_many :enablers, dependent: :destroy
   has_many :perks, dependent: :destroy
