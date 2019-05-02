@@ -7,3 +7,7 @@
 <p>Category: <%= @project.category %></p>
 <p>Location: <%= "#{@project.city}, #{@project.country}" %></p>
 <p>Enablers: <%= @project.backer_amount %></p>
+<% if can? :destroy, @project %>
+  <%= link_to 'Delete', project_path, method: :delete %>
+  <%= link_to 'Edit', edit_project_path, method: :get %>
+<% end %>
