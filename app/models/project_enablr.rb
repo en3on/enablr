@@ -8,6 +8,8 @@ class ProjectEnablr < ApplicationRecord
 
   validate :already_enabled
 
+  validate :is_own_project
+
   belongs_to :user
   belongs_to :project
 
@@ -22,5 +24,19 @@ class ProjectEnablr < ApplicationRecord
     return if user.project_enablrs.where("project_id = #{project_id}").empty?
 
     errors[:project_id] << 'You can not back the same project more than once'
+  end
+
+  def is_own_project
+    return unless user_id.present?
+
+    return unless project_id.present?
+
+    user = User.find(user_id)
+
+    return unless user.fundraiser
+
+    return if user.projects.where("id = #{project_id}").empty?
+
+    errors[:project_id] << 'You can not back your own project'
   end
 end
