@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProjectEnablr, type: :model do
   before(:each) do
+    ProjectEnablr.destroy_all
     @project = create(:random)
     @user = User.find(@project.user_id)
     @project_enablr = build(:project_enablr)
@@ -49,6 +50,12 @@ RSpec.describe ProjectEnablr, type: :model do
 
   context 'when project has already been enabled' do
     before(:each) do
+      @project_enablr = build(:complete_project_enablr)
+      @project_enablr.save
+    end
+
+    it 'cannot enable the same project again' do
+      expect(@project_enablr).not_to be_valid
     end
   end
 end
