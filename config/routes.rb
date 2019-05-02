@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get '/users/:id', to: 'users#show', as: 'user_profile'
+
   get '/projects', to: 'projects#index', as: 'projects'
   post '/users/:user_id/projects', to: 'projects#create', as: 'user_projects'
   get '/projects/new', to: 'projects#new', as: 'new_project'
