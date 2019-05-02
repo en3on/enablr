@@ -1,7 +1,9 @@
 require 'date'
+require_relative 'modules/project_helper'
 
 class Project < ApplicationRecord
-  validates :name, :description, :target_amount, :target_date, presence: true
+
+  include ProjectCategories
 
   validates :name,
             :description,
@@ -16,15 +18,19 @@ class Project < ApplicationRecord
 
   validate :date_is_in_the_future
 
-  has_many :enablers, dependent: :destroy
   has_many :perks, dependent: :destroy
+  has_many :enablers, dependent: :destroy
 
-  before_create :set_initial_values
+  before_create :set_initial_values, :assign_hardware_status
 
   private
   def set_initial_values
     self.current_amount = 0
     self.backer_amount = 0
+  end
+
+  def assign_hardware_status
+    self.hardware = ProjectCategories.hardware?(category)
   end
 
   def date_is_in_the_future
