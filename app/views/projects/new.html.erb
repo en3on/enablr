@@ -1,6 +1,6 @@
 <h1>Create New Project</h1>
 
-<%= form_for(@project) do |f| %>
+<%= form_for(@project, url: projects_path) do |f| %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -10,21 +10,29 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :hardware, 'Type' %><br>
-    <%= f.select :hardware, [['Hardware', true], ['Software', false]] %>
-  </div>
-  <div class="field">
     <%= f.label :target_amount %><br>
     <%= f.number_field :target_amount, min: 1, step: 1 %>
   </div>
   <div class="field">
     <%= f.label :target_date %><br>
-    <%= f.date_field :target_date, min: Date.now %>
+    <%= f.date_field :target_date, min: Date.today %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select :category,   %>
+    <%= f.select :category, ProjectCategories.categories,
+     disabled: ['-- Software --', '-- Hardware --'] %>
   </div>
-  <div class="field"></div>
-  <div class="field"></div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create' %>
+  </div>
+  
 <% end %>
