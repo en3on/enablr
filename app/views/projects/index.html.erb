@@ -1,2 +1,14 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+
+
+<% @projects.each do |project| %>
+<% @user = User.find(project.user_id) %>
+<h3><%= project.name %></h3>
+<h3><%= project.hardware %></h3>
+<h3><%= project.current_amount %></h3>
+<h3><%= project.target_amount %></h3>
+<h3><%= project.category %></h3>
+<h3><%= project.country %></h3>
+<h3><%= project.city %></h3>
+<h3><%= project.target_date %></h3>
+<%= "#{@user.first_name} #{@user.last_name}" %>
+<% end %>
