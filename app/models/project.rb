@@ -19,7 +19,7 @@ class Project < ApplicationRecord
   validate :date_is_in_the_future
 
   has_many :perks, dependent: :destroy
-  has_many :enablers, dependent: :destroy
+  has_many :project_enablrs, dependent: :destroy
 
   before_create :set_initial_values, :assign_hardware_status
 
