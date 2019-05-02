@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :country, presence: true
   validates :city, presence: true
 
-  has_many :enablers, dependent: :destroy
+  has_many :project_enablrs, dependent: :destroy
   has_many :projects, dependent: :destroy
 end

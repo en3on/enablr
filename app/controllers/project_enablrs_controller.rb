@@ -1,0 +1,2 @@
+class ProjectEnablrsController < ApplicationController
+end
