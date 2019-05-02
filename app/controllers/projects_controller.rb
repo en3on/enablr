@@ -18,8 +18,7 @@ class ProjectsController < ApplicationController
     project = user.projects.new(project_params(params[:project]))
 
     if project.save
-      # redirect_to project
-      puts 'saved'
+      redirect_to project
     else
       render 'new'
     end
@@ -34,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    user = User.find(params[:user_id])
+    user = current_user
     project = user.projects.find(params[:id])
 
     project.update(project_params(params[:project]))
@@ -43,7 +42,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user_id])
+    user = current_user
 
     user.projects.destroy(params[:id])
   end
