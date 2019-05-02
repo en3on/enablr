@@ -1,2 +1,30 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1>Create New Project</h1>
+
+<%= form_for(@project) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :hardware, 'Type' %><br>
+    <%= f.select :hardware, [['Hardware', true], ['Software', false]] %>
+  </div>
+  <div class="field">
+    <%= f.label :target_amount %><br>
+    <%= f.number_field :target_amount, min: 1, step: 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :target_date %><br>
+    <%= f.date_field :target_date, min: Date.now %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select :category,   %>
+  </div>
+  <div class="field"></div>
+  <div class="field"></div>
+<% end %>
