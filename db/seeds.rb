@@ -47,4 +47,21 @@ puts "Creating project #{project.name}"
 
 project.save
 
+params = {
+  name: 'tech',
+  description: 'second software project',
+  hardware: 'true',
+  target_amount: '50_000',
+  target_date: '18 Apr 2020',
+  category: 'App',
+  country: 'Australia',
+  city: 'Sydney'
+}
+
+project = user.projects.new(params)
+
+puts "Creating project #{project.name}"
+
+project.save
+
 puts 'Seeding complete'
