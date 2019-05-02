@@ -3,7 +3,7 @@ module ControllerMacros
     before(:each) do
       @request.env['devise.mapping'] = Devise.mappings[:fundraiser]
       fundraiser = FactoryBot.create(:fundraiser)
-      sign_in :user, fundraiser
+      sign_in fundraiser 
     end
   end
 
@@ -11,7 +11,7 @@ module ControllerMacros
     before(:each) do
       @request.env['devise.mapping'] = Devise.mapping[:standard]
       standard = FactoryBot.create(:standard)
-      sign_in :user, standard 
+      sign_in standard
     end
   end
 end
