@@ -32,6 +32,10 @@ class ProjectEnablrsController < ApplicationController
 
   end
 
+  def update
+    
+  end
+
   private
   def enablr_params
     params.permit(:project_id, :user_id, :pledged_amount)

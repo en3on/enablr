@@ -17,22 +17,14 @@ Rails.application.routes.draw do
     post '/users', to: 'devise/registrations#create'
   end
 
-  post '/projects/:project_id/project_enablrs', to: 'project_enablrs#create', as: 'project_enablr'
-  delete '/projects/:project_id/project_enablrs', to: 'project_enablrs#destroy'
-
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
-  get '/projects', to: 'projects#index', as: 'projects'
-  post '/projects', to: 'projects#create'
-  get '/projects/new', to: 'projects#new', as: 'new_project'
-  get '/projects/:id/edit', to: 'projects#edit', as: 'edit_project'
-  get '/projects/:id', to: 'projects#show', as: 'project'
-  delete '/projects/:id', to: 'projects#destroy'
-  patch '/projects/:id', to: 'projects#update'
+  resources :projects
 
-  resources :project_enablrs do
-    resources :comments
-  end
+  post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create', as: 'project_enablr'
+  delete '/projects/:project_id/enablrs', to: 'project_enablrs#destroy', as: 'delete_project_enablr'
+  get '/projects/:project_id/enablrs/:user_id/edit', to: 'project_enablrs#edit', as: 'update_project_enablr'
+
 
   root to: 'static_pages#index'
 end
