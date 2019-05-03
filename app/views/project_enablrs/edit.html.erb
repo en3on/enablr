@@ -1,0 +1,13 @@
+<h1>Edit Pledge for <%= Project.find(@enablr.project_id).name %></h1>
+
+<%= form_for(@enablr, url: edit_project_enablr_path) do |f| %>
+  <div class="field">
+    <%= f.label :pledged_amount %>
+    <%= f.number_field :pledged_amount, min: 1, step: 1, value: @enablr.pledged_amount %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update' %>
+  </div>
+
+<% end %>

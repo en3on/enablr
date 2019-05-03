@@ -49,8 +49,7 @@ RSpec.describe ProjectEnablr, type: :model do
 
   context 'when project has already been enabled' do
     before(:each) do
-      @project_enablr = build(:complete_project_enablr)
-      @project_enablr.save
+      @project_enablr = create(:complete_project_enablr)
     end
 
     it 'cannot enable the same project again' do

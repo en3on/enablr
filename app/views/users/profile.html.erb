@@ -47,8 +47,11 @@
   <% end %>
 
   <% if can? :destroy, ProjectEnablr, project_id: enabled.project_id %>
-    <%= link_to "Stop Enabling", project_enablr_path(project_id: enabled.project_id), method: :delete %>
+    <%= link_to "Stop Enabling", delete_project_enablr_path(project_id: enabled.project_id), method: :delete %>
   <% end %>
 
+  <% if can? :update, ProjectEnablr, project_id: enabled.project_id %>
+    <%= link_to 'Edit Pledge', edit_project_enablr_path(enabled.id) %>
+  <% end %>
 
 <% end %>

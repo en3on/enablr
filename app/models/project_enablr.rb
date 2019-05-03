@@ -10,25 +10,13 @@ class ProjectEnablr < ApplicationRecord
 
   validates :pledged_amount, numericality: { greater_than_or_equal_to: 1 }
 
-  validate :already_enabled
-
   validate :own_project?
 
-
-
-  private
-  def already_enabled
-    return unless user_id.present?
-
-    return unless project_id.present?
-
-    user = User.find(user_id)
-
-    return if user.project_enablrs.where("project_id = #{project_id}").empty?
-
-    errors[:project_id] << 'You can not back the same project more than once'
+  def self.already_enabled?(project_id, user_id)
+    !ProjectEnablr.find_by(user_id: user_id, project_id: project_id).nil?
   end
 
+  private
   def own_project?
     return unless user_id.present?
 
