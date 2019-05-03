@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   post '/projects/:project_id/project_enablrs', to: 'project_enablrs#create', as: 'project_enablr'
+  delete '/projects/:project_id/project_enablrs', to: 'project_enablrs#destroy'
 
   get '/users/:id', to: 'users#show', as: 'user_profile'
 

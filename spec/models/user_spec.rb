@@ -30,5 +30,11 @@ RSpec.describe User, type: :model do
       user.city = nil
       expect(user).to_not be_valid
     end
+
+    it 'is invalid with a weak password' do
+      user.password = user.password_confirmation = 'password'
+
+      expect(user).to_not be_valid
+    end
   end
 end

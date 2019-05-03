@@ -17,11 +17,19 @@ class ProjectEnablrsController < ApplicationController
   end
 
   def destroy
-    project_enablr = ProjectEnablr.find(params[:id])
+    user = User.find(current_user.id)
+    project = Project.find(params[:project_id])
+    enablr = user.project_enablrs.find_by(project_id: project.id)
 
-    user = current_user
+    if user.project_enablrs.destroy(enablr.id)
+      project.decrement :current_amount, enablr.pledged_amount
+      project.save
+      redirect_to user_profile_path(user.id)
+    else
+      # errors!
+      render user
+    end
 
-    user.ProjectEnablr.destroy(project_enablr)
   end
 
   private
