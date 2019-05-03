@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it 'can create a new project' do
-
     end
+
   end
 end

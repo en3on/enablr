@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     post '/users', to: 'devise/registrations#create'
   end
 
+  post '/project_enablrs', to: 'project_enablrs#create', as: 'project_enablr'
+
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
   get '/projects', to: 'projects#index', as: 'projects'

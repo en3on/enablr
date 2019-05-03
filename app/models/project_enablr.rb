@@ -8,7 +8,7 @@ class ProjectEnablr < ApplicationRecord
 
   validate :already_enabled
 
-  validate :is_own_project
+  validate :own_project?
 
   belongs_to :user
   belongs_to :project
@@ -26,7 +26,7 @@ class ProjectEnablr < ApplicationRecord
     errors[:project_id] << 'You can not back the same project more than once'
   end
 
-  def is_own_project
+  def own_project?
     return unless user_id.present?
 
     return unless project_id.present?
