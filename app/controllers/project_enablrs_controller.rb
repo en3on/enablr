@@ -8,6 +8,8 @@ class ProjectEnablrsController < ApplicationController
     project = Project.find(params[:project_id])
 
     if enablr.save
+      project.increment :current_amount, params[:pledged_amount].to_i
+      project.save
       redirect_to project
     else
       enablr.errors.each { |e, v| puts "#{e}: #{v}" }
