@@ -1,4 +1,8 @@
 class ProjectEnablr < ApplicationRecord
+  has_many :comments, dependent: :destroy
+  belongs_to :user
+  belongs_to :project  
+  
   validates :user_id,
             :project_id,
             :pledged_amount,
@@ -6,6 +10,5 @@ class ProjectEnablr < ApplicationRecord
 
   validates :pledged_amount, numericality: { greater_than_or_equal_to: 1 }
 
-  belongs_to :user
-  belongs_to :project
+
 end
