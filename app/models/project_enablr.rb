@@ -1,4 +1,8 @@
 class ProjectEnablr < ApplicationRecord
+  has_many :comments, dependent: :destroy
+  belongs_to :user
+  belongs_to :project
+  
   validates :user_id,
             :project_id,
             :pledged_amount,
@@ -10,8 +14,7 @@ class ProjectEnablr < ApplicationRecord
 
   validate :own_project?
 
-  belongs_to :user
-  belongs_to :project
+
 
   private
   def already_enabled

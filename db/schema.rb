@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_051711) do
+ActiveRecord::Schema.define(version: 2019_05_02_234738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_051711) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_enablr_id"
+    t.index ["project_enablr_id"], name: "index_comments_on_project_enablr_id"
   end
 
   create_table "perks", force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_051711) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "project_enablrs"
   add_foreign_key "perks", "projects"
   add_foreign_key "project_enablrs", "projects"
   add_foreign_key "project_enablrs", "users"

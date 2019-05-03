@@ -50,6 +50,4 @@ puts "    Password: #{user.password}"
 puts
 puts
 
-
-
-puts 'end of seeding'
+puts 'Seeding complete'

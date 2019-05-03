@@ -30,5 +30,9 @@ Rails.application.routes.draw do
   delete '/projects/:id', to: 'projects#destroy'
   patch '/projects/:id', to: 'projects#update'
 
+  resources :project_enablrs do
+    resources :comments
+  end
+
   root to: 'static_pages#index'
 end
