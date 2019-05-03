@@ -18,8 +18,7 @@ class ProjectsController < ApplicationController
     project = user.projects.new(project_params(params[:project]))
 
     if project.save
-      # redirect_to project
-      puts 'saved'
+      redirect_to project
     else
       render 'new'
     end
