@@ -6,8 +6,8 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     fundraiser { true }
-    country { 'Australia' }
-    city { 'Melbourne' }
+    country { Faker::Address.country }
+    city { Faker::Address.city }
   end
 
   factory :standard, class: User do
@@ -17,7 +17,7 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     fundraiser { false }
-    country { 'Australia' }
-    city { 'Melbourne' }
+    country { Faker::Address.country }
+    city { Faker::Address.city }
   end
 end

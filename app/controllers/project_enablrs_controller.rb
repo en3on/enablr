@@ -3,14 +3,14 @@ class ProjectEnablrsController < ApplicationController
 
   def create
 
-    user = User.find(enablr_params.user_id)
+    user = User.find(params[:user_id])
     enablr = user.project_enablrs.new(enablr_params)
-    project = Project.find(enablr_params.project_id)
+    project = Project.find(params[:project_id])
 
     if enablr.save
       redirect_to project
     else
-      # errors!
+      enablr.errors.each { |e, v| puts "#{e}: #{v}" }
     end
   end
 

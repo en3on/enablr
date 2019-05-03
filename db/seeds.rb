@@ -8,60 +8,12 @@
 
 puts 'Start of seeding'
 
-# Create users
+puts 'creating projects'
+10.times do
+  project = FactoryBot.create(:random)
+  user = User.find(project.user_id)
 
-params = {
-  email: Faker::Internet.email,
-  password: 'password',
-  password_confirmation: 'password',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  fundraiser: true,
-  country: Faker::Address.country,
-  city: Faker::Address.city
-}
+  puts "Creating project #{project.name} for #{user.first_name} #{user.last_name}"
+end
 
-user = User.new(params)
-
-puts "Creating user #{user.first_name}"
-
-user.save
-
-
-# Create Projects
-
-params = {
-  name: 'software project',
-  description: 'first software project',
-  hardware: 'false',
-  target_amount: '100_000',
-  target_date: '20 Apr 2020',
-  category: 'App',
-  country: 'Australia',
-  city: 'Melbourne'
-}
-
-project = user.projects.new(params)
-
-puts "Creating project #{project.name}"
-
-project.save
-
-params = {
-  name: 'tech',
-  description: 'second software project',
-  hardware: 'true',
-  target_amount: '50_000',
-  target_date: '18 Apr 2020',
-  category: 'App',
-  country: 'Australia',
-  city: 'Sydney'
-}
-
-project = user.projects.new(params)
-
-puts "Creating project #{project.name}"
-
-project.save
-
-puts 'Seeding complete'
+puts 'end of seeding'
