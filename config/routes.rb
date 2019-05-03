@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     post '/users', to: 'devise/registrations#create'
   end
 
+  post '/projects/:project_id/project_enablrs', to: 'project_enablrs#create', as: 'project_enablr'
+  delete '/projects/:project_id/project_enablrs', to: 'project_enablrs#destroy'
+
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
   get '/projects', to: 'projects#index', as: 'projects'

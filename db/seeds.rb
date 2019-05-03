@@ -8,72 +8,46 @@
 
 puts 'Start of seeding'
 
-# Create users
+puts 'creating projects'
+10.times do
+  project = FactoryBot.create(:random)
+  user = User.find(project.user_id)
 
-params = {
-  email: Faker::Internet.email,
-  password: 'password',
-  password_confirmation: 'password',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  fundraiser: true,
-  country: Faker::Address.country,
-  city: Faker::Address.city
-}
+  puts "Created project #{project.name} for #{user.first_name} #{user.last_name}"
+end
 
-user = User.new(params)
-
-puts "Creating user #{user.first_name}"
+puts 'creating test standard user'
+user = FactoryBot.build(:standard)
+user.email = 'standard@test.com'
+user.first_name = 'standard_first'
+user.last_name = 'standard_last'
 
 user.save
 
+puts 'created test standard user'
+puts
+puts
+puts "    Email: #{user.email}"
+puts "    Password: #{user.password}"
+puts
+puts
 
-# Create Projects
 
-params = {
-  name: 'software project',
-  description: 'first software project',
-  hardware: 'false',
-  target_amount: '100_000',
-  target_date: '20 Apr 2020',
-  category: 'App',
-  country: 'Australia',
-  city: 'Melbourne'
-}
 
-project = user.projects.new(params)
+puts 'creating test fundraiser user'
+user = FactoryBot.build(:fundraiser)
+user.email = 'fundraiser@test.com'
+user.first_name = 'fundraiser_first'
+user.last_name = 'fundraiser_last'
 
-puts "Creating project #{project.name}"
+user.save
 
-project.save
-
-params = {
-  name: 'tech',
-  description: 'second software project',
-  hardware: 'true',
-  target_amount: '50_000',
-  target_date: '18 Apr 2020',
-  category: 'App',
-  country: 'Australia',
-  city: 'Sydney'
-}
-
-project = user.projects.new(params)
-
-puts "Creating project #{project.name}"
-
-project.save
-
-# Create Comments
-
-# params = {
-#   content: 'hello'
-# }
-
-# comment = project_enablr.comments.new(params)
-
-# puts "Creating comment #{comment.content}"
-
-# comment.save
+puts 'created test fundraiser user'
+puts
+puts
+puts "    Email: #{user.email}"
+puts "    Password: #{user.password}"
+puts
+puts
 
 puts 'Seeding complete'

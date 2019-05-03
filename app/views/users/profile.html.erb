@@ -13,8 +13,8 @@
 <% @projects.each do |project| %>
   <h3>Name: <%= project.name %></h3>
   <h3>Hardware: <%= project.hardware %></h3>
-  <h3>Current Amount: <%= project.current_amount %></h3>
-  <h3>Target Amount: <%= project.target_amount %></h3>
+  <h3>Current Amount: $<%= project.current_amount %></h3>
+  <h3>Target Amount: $<%= project.target_amount %></h3>
   <h3>Category: <%= project.category %></h3>
   <h3>Location: <%= "#{project.city}, #{project.country}" %></h3>
   <h3>Target Date: <%= project.target_date %></h3>
@@ -22,4 +22,33 @@
   <%= link_to project_path(user_id: @user.id, id: project.id), class: "btn btn-default" do %>
     <i class="fas fa-eye"></i> 
   <% end %>
+<% end %>
+
+<% 5.times do %>
+  <br>
+<% end %>
+
+<h1>Enabled Projects</h1>
+<br>
+<% @user.project_enablrs.each do |enabled| %>
+  <% @enabled_project = Project.find(enabled.project_id) %>
+  <% @project_owner = User.find(@enabled_project.user_id) %>
+  <h3>Name: <%= @enabled_project.name %></h3>
+  <h3><strong>Pledged Amount: $<%= enabled.pledged_amount %></h3>
+  <h3>Hardware: <%= @enabled_project.hardware %></h3>
+  <h3>Current Amount: $<%= @enabled_project.current_amount %></h3>
+  <h3>Target Amount: $<%= @enabled_project.target_amount %></h3>
+  <h3>Category: <%= @enabled_project.category %></h3>
+  <h3>Location: <%= "#{@enabled_project.city}, #{@enabled_project.country}" %></h3>
+  <h3>Target Date: <%= @enabled_project.target_date %></h3>
+  <%= "#{@project_owner.first_name} #{@project_owner.last_name}" %>
+  <%= link_to project_path(user_id: @user.id, id: @enabled_project.id), class: "btn btn-default" do %>
+    <i class="fas fa-eye"></i> 
+  <% end %>
+
+  <% if can? :destroy, ProjectEnablr, project_id: enabled.project_id %>
+    <%= link_to "Stop Enabling", project_enablr_path(project_id: enabled.project_id), method: :delete %>
+  <% end %>
+
+
 <% end %>
