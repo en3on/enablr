@@ -1,17 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ProjectEnablrsController, type: :controller do
-  context 'with valid parameters' do
-    before(:each) do
-      @project = create(:random)
-      @user = create(:standard)
-    end
+  describe 'as a user' do
+    context 'with valid parameters' do
 
-    it 'can enable a project' do
-      post '/project_enablrs', params: {
-        project_id: @project.id,
-        user_id: @user.id
-      }
+      it 'can back a project'
     end
   end
 end
