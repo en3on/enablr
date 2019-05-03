@@ -1,17 +1,16 @@
 
-
+<h1>Projects</h1>
 <% @projects.each do |project| %>
 <% @user = User.find(project.user_id) %>
-  <h3><%= project.name %></h3>
-  <h3><%= project.hardware %></h3>
-  <h3><%= project.current_amount %></h3>
-  <h3><%= project.target_amount %></h3>
-  <h3><%= project.category %></h3>
-  <h3><%= project.country %></h3>
-  <h3><%= project.city %></h3>
-  <h3><%= project.target_date %></h3>
+  <p>Name: <%= project.name %></p>
+  <p><%= project.hardware ? 'Hardware' : 'Software' %></p>
+  <p>Current Amount: <%= project.current_amount %></p>
+  <p>Target Amount: <%= project.target_amount %></p>
+  <p>Category: <%= project.category %></p>
+  <p>Location: <%= "#{project.city}, #{project.country}" %></p>
+  <p><%= project.target_date.strftime("%B %d, %Y") %></>
   <%= "#{@user.first_name} #{@user.last_name}" %>
-  <%= link_to project_path(user_id: @user.id, id: project.id), class: "btn btn-default" do %>
+  <%= link_to project_path(project.id), class: "btn btn-default" do %>
     <i class="fas fa-eye"></i> 
   <% end %>
 <% end %>
