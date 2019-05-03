@@ -3,6 +3,15 @@ class ProjectEnablrsController < ApplicationController
 
   def create
 
+    user = User.find(enablr_params.user_id)
+    enablr = user.project_enablrs.new(enablr_params)
+    project = Project.find(enablr_params.project_id)
+
+    if enablr.save
+      redirect_to project
+    else
+      # errors!
+    end
   end
 
   def destroy
@@ -15,6 +24,6 @@ class ProjectEnablrsController < ApplicationController
 
   private
   def enablr_params
-    params.permit(:project_id, :user_id)
+    params.permit(:project_id, :user_id, :pledged_amount)
   end
 end
