@@ -64,4 +64,16 @@ puts "Creating project #{project.name}"
 
 project.save
 
+# Create Comments
+
+# params = {
+#   content: 'hello'
+# }
+
+# comment = project_enablr.comments.new(params)
+
+# puts "Creating comment #{comment.content}"
+
+# comment.save
+
 puts 'Seeding complete'
