@@ -51,7 +51,7 @@
   <% end %>
 
   <% if can? :update, ProjectEnablr, project_id: enabled.project_id %>
-    <%= link_to 'Edit Pledge', update_project_enablr_path(project_id: enabled.project_id, user_id: current_user.id) %>
+    <%= link_to 'Edit Pledge', edit_project_enablr_path(enabled.id) %>
   <% end %>
 
 <% end %>

@@ -49,24 +49,11 @@ RSpec.describe ProjectEnablr, type: :model do
 
   context 'when project has already been enabled' do
     before(:each) do
-      @project_enablr = build(:complete_project_enablr)
-      @project_enablr.save
-      @project = Project.find(@project_enablr.project_id)
-      @project.current_amount = @project_enablr.pledged_amount
+      @project_enablr = create(:complete_project_enablr)
     end
 
     it 'cannot enable the same project again' do
       expect(@project_enablr).not_to be_valid
-    end
-
-    it 'can edit pledged_amount for project' do
-      initial_pledge = @project_enablr.pledged_amount
-      puts initial_pledge
-      initial_current_amount = @project.current_amount
-      @project_enablr.update(pledged_amount: initial_pledge + 1000)
-
-      expect(@project_enablr.pledged_amount).to eq(initial_pledge + 1000)
-      expect(@project.current_amount).to eq(initial_current_amount + 1000)
     end
   end
 

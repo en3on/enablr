@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create', as: 'project_enablr'
   delete '/projects/:project_id/enablrs', to: 'project_enablrs#destroy', as: 'delete_project_enablr'
-  get '/projects/:project_id/enablrs/:user_id/edit', to: 'project_enablrs#edit', as: 'update_project_enablr'
+  get '/enablrs/:id', to: 'project_enablrs#edit', as: 'edit_project_enablr'
+  patch '/enablrs/:id', to: 'project_enablrs#update'
+
 
 
   root to: 'static_pages#index'
