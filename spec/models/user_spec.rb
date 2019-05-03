@@ -21,11 +21,6 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
 
-    it 'is invalid without fundraiser being set' do
-      user.fundraiser = nil
-      expect(user).to_not be_valid
-    end
-
     it 'is invalid without a country' do
       user.country = nil
       expect(user).to_not be_valid
