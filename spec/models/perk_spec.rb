@@ -21,7 +21,17 @@ RSpec.describe Perk, type: :model do
         @perk.name = nil
         expect(@perk).not_to be_valid
       end
-      it 'is invalid without a minimum_amount'
+
+      it 'is invalid without a minimum_amount' do
+        @perk.minimum_amount = nil
+        expect(@perk).not_to be_valid
+      end
+
+      it 'is invalid without a rewards description' do
+        @perk.rewards = nil
+        expect(@perk).not_to be_valid
+      end
+
     end
   end
 end
