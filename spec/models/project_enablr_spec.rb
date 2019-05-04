@@ -51,10 +51,6 @@ RSpec.describe ProjectEnablr, type: :model do
     before(:each) do
       @project_enablr = create(:complete_project_enablr)
     end
-
-    it 'cannot enable the same project again' do
-      expect(@project_enablr).not_to be_valid
-    end
   end
 
   context 'as a fundraiser with a project' do
