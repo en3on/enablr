@@ -1,14 +1,16 @@
 <h1>User Profile Page</h1>
-<h3>Name: <%= "#{@user.first_name}, #{@user.last_name} " %></h3>
-<h3>Joined: <%= @user.created_at %></h3>
+<h3><%= "#{@user.first_name}, #{@user.last_name} " %></h3>
+<h3>Joined: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
 <h3>Fundraiser: <%= @user.fundraiser %></h3>
 <h3>Country: <%= @user.country %></h3>
 <h3>City: <%= @user.city %></h3>
 <h3>Email: <%= @user.email %></h3>
+<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
 
-<br>
-<br>
-<br>
+<% 5.times do %>
+  <br>
+<% end %>
+
 <h1>Projects</h1>
 <% @projects.each do |project| %>
   <h3>Name: <%= project.name %></h3>
