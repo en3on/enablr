@@ -1,5 +1,5 @@
 class Perk < ApplicationRecord
-  has_many :enablers, dependent: :destroy
+  has_many :project_enablrs, dependent: :destroy
   belongs_to :project
 
   validates :name,
