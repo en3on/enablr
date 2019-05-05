@@ -35,7 +35,7 @@ class PerksController < ApplicationController
   def update
     perk = Perk.find(params[:id])
 
-    if perk.update
+    if perk.update(perk_params(params))
       redirect_to project_path(perk.project_id)
     else
       # errors!
