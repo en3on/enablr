@@ -2,6 +2,11 @@
 class PerksController < ApplicationController
   authorize_resource
 
+  def show
+    @perk = Perk.find(params[:id])
+    @project = Project.find(params[:project_id])
+  end
+
   def new
     @perk = Perk.new
     @project = Project.find(params[:project_id])

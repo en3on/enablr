@@ -6,4 +6,11 @@ class Perk < ApplicationRecord
             :minimum_amount,
             :rewards,
             presence: true
+
+  before_create :set_unlimited
+
+  private
+  def set_unlimited
+    self.unlimited = amount_left == 0
+  end
 end
