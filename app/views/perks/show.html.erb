@@ -6,10 +6,9 @@
 
 <p>Rewards: <%= @perk.rewards %></p>
 
-<% unless @perk.unlimited %>
-  <% if @perk.amount_left > 0 %>
+<% if @perk.amount_left > 0 || @perk.unlimited %>
+  <% unless @perk.unlimited %>
     <p>Amount Left: <%= @perk.amount_left %></p>
-  <% else %>
-      <p>SOLD OUT!</p>
-    <% end %>
-<% end %>
+  <% end %>
+
+  <%= form_for 
