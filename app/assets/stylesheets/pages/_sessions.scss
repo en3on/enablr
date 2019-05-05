@@ -1,0 +1,17 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 50px;
+  background-color: grey;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

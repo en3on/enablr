@@ -16,7 +16,7 @@
         Hello, <%= current_user.first_name %> 
       </div> 
       <%= link_to user_profile_path(current_user.id) do %>
-        <div class="image-avatar"></div>
+        <div class="navbar-image-avatar"></div>
       <% end %>
     <% else %>
       <%= link_to 'Sign Up', new_user_registration_path, :class => "btn" %>

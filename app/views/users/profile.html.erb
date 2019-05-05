@@ -1,59 +1,63 @@
-<h1>User Profile Page</h1>
-<h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
-<h3>Joined <%= @user.created_at.strftime("%-d %B %Y") %></h3>
-<h3>Fundraiser: <%= @user.fundraiser %></h3>
-<h3>Country: <%= @user.country %></h3>
-<h3>City: <%= @user.city %></h3>
-<h3>Email: <%= @user.email %></h3>
-<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+<div class="user-profile-container">
+  <div class="profile-image">
+    <div class="profile-image-avatar"></div>
+  </div>
+  <div class="user-profile">
+    <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+    <p>Joined <%= @user.created_at.strftime("%-d %B %Y") %></p>
+    <p>Fundraiser: <%= @user.fundraiser %></p>
+    <p>Country: <%= @user.country %></p>
+    <p>City: <%= @user.city %></p>
+    <p>Email: <%= @user.email %></p>
+    <%= link_to 'Edit Profile', edit_user_registration_path %>
+  </div>
+  <div class="projects-title">
+    <h1>Projects</h1>
+  </div>
+  <div class="user-projects">
+    <% @projects.each do |project| %>
+      <h3>Name: <%= project.name %></h3>
+      <h3>Hardware: <%= project.hardware %></h3>
+      <h3>Current Amount: $<%= project.current_amount %></h3>
+      <h3>Target Amount: $<%= project.target_amount %></h3>
+      <h3>Category: <%= project.category %></h3>
+      <h3>Location: <%= "#{project.city}, #{project.country}" %></h3>
+      <h3>Target Date: <%= project.target_date %></h3>
+      <%= "#{@user.first_name} #{@user.last_name}" %>
+      <%= link_to project_path(user_id: @user.id, id: project.id), class: "btn btn-default" do %>
+        <i class="fas fa-eye"></i> 
+      <% end %>
+    <% end %>
+  </div>
+  <div class="enabled-projects-title">
+  </div>
+  <div class="user-projects-enabled-container">
+    <div class="user-projects-enabled">
+      <h1>Enabled Projects</h1>
+      <% @user.project_enablrs.each do |enabled| %>
+        <% @enabled_project = Project.find(enabled.project_id) %>
+        <% @project_owner = User.find(@enabled_project.user_id) %>
+        <p>Name: <%= @enabled_project.name %></p>
+        <p>Pledged Amount: $<%= enabled.pledged_amount %></p>
+        <p>Hardware: <%= @enabled_project.hardware %></p>
+        <p>Current Amount: $<%= @enabled_project.current_amount %></p>
+        <p>Target Amount: $<%= @enabled_project.target_amount %></p>
+        <p>Category: <%= @enabled_project.category %></p>
+        <p>Location: <%= "#{@enabled_project.city}, #{@enabled_project.country}" %></p>
+        <p>Target Date: <%= @enabled_project.target_date %></p>
+        <p>By: <%= "#{@project_owner.first_name} #{@project_owner.last_name}" %></p>
+        <%= link_to project_path(user_id: @user.id, id: @enabled_project.id), class: "btn btn-default" do %>
+          <i class="fas fa-eye"></i> 
+        <% end %>
+        <% if can? :destroy, ProjectEnablr, project_id: enabled.project_id %>
+          <%= link_to "Stop Enabling", delete_project_enablr_path(project_id: enabled.project_id), method: :delete %>
+        <% end %>
 
-<% 5.times do %>
-  <br>
-<% end %>
+        <% if can? :update, ProjectEnablr, project_id: enabled.project_id %>
+          <%= link_to 'Edit Pledge', edit_project_enablr_path(enabled.id) %>
+        <% end %>
 
-<h1>Projects</h1>
-<% @projects.each do |project| %>
-  <h3>Name: <%= project.name %></h3>
-  <h3>Hardware: <%= project.hardware %></h3>
-  <h3>Current Amount: $<%= project.current_amount %></h3>
-  <h3>Target Amount: $<%= project.target_amount %></h3>
-  <h3>Category: <%= project.category %></h3>
-  <h3>Location: <%= "#{project.city}, #{project.country}" %></h3>
-  <h3>Target Date: <%= project.target_date %></h3>
-  <%= "#{@user.first_name} #{@user.last_name}" %>
-  <%= link_to project_path(user_id: @user.id, id: project.id), class: "btn btn-default" do %>
-    <i class="fas fa-eye"></i> 
-  <% end %>
-<% end %>
-
-<% 5.times do %>
-  <br>
-<% end %>
-
-<h1>Enabled Projects</h1>
-<br>
-<% @user.project_enablrs.each do |enabled| %>
-  <% @enabled_project = Project.find(enabled.project_id) %>
-  <% @project_owner = User.find(@enabled_project.user_id) %>
-  <h3>Name: <%= @enabled_project.name %></h3>
-  <h3><strong>Pledged Amount: $<%= enabled.pledged_amount %></h3>
-  <h3>Hardware: <%= @enabled_project.hardware %></h3>
-  <h3>Current Amount: $<%= @enabled_project.current_amount %></h3>
-  <h3>Target Amount: $<%= @enabled_project.target_amount %></h3>
-  <h3>Category: <%= @enabled_project.category %></h3>
-  <h3>Location: <%= "#{@enabled_project.city}, #{@enabled_project.country}" %></h3>
-  <h3>Target Date: <%= @enabled_project.target_date %></h3>
-  <%= "#{@project_owner.first_name} #{@project_owner.last_name}" %>
-  <%= link_to project_path(user_id: @user.id, id: @enabled_project.id), class: "btn btn-default" do %>
-    <i class="fas fa-eye"></i> 
-  <% end %>
-
-  <% if can? :destroy, ProjectEnablr, project_id: enabled.project_id %>
-    <%= link_to "Stop Enabling", delete_project_enablr_path(project_id: enabled.project_id), method: :delete %>
-  <% end %>
-
-  <% if can? :update, ProjectEnablr, project_id: enabled.project_id %>
-    <%= link_to 'Edit Pledge', edit_project_enablr_path(enabled.id) %>
-  <% end %>
-
-<% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
