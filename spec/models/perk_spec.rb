@@ -1,37 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Perk, type: :model do
-  describe 'as a project owner' do
-
+  context 'with valid parameters' do
     before(:each) do
       @perk = build(:unlimited_perk)
     end
 
-    context 'with valid parameters' do
-
-      it 'can create a new perk' do
-        expect(@perk).to be_valid
-      end
-
+    it 'should be valid' do
+      expect(@perk).to be_valid
     end
 
-    context 'with invalid parameters' do
+    it 'should be unlimited' do
+      @perk.save
+      expect(@perk.unlimited).to be true
+    end
 
-      it 'is invalid without a name' do
-        @perk.name = nil
-        expect(@perk).not_to be_valid
-      end
-
-      it 'is invalid without a minimum_amount' do
-        @perk.minimum_amount = nil
-        expect(@perk).not_to be_valid
-      end
-
-      it 'is invalid without a rewards description' do
-        @perk.rewards = nil
-        expect(@perk).not_to be_valid
-      end
-
+    it 'should be limited with an amount_left greater than -1' do
+      @perk.amount_left = 0
+      @perk.save
+      expect(@perk.unlimited).to be false
     end
   end
 end

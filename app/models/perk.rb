@@ -11,6 +11,6 @@ class Perk < ApplicationRecord
 
   private
   def set_unlimited
-    self.unlimited = amount_left == 0
+    self.unlimited = amount_left == -1
   end
 end

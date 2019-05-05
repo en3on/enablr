@@ -14,8 +14,8 @@
     <%= f.number_field :minimum_amount, min: 1, step: 1 %>
   </div>
   <div class="field">
-    <%= f.label :amount_left, "Amount of enablrs that can enable this perk (Set to 0 for unlimited)" %><br>
-    <%= f.number_field :amount_left, min: 0, step: 1 %>
+    <%= f.label :amount_left, "Amount of enablrs that can enable this perk (Set to -1 for unlimited)" %><br>
+    <%= f.number_field :amount_left, min: -1, step: 1 %>
   </div>
 
   <div class="actions">

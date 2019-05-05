@@ -1,0 +1,10 @@
+<h1>Edit perk <%= @perk.name %></h1>
+
+<%= form_for(:perk, url: project_perk_path(project_id: @perk.project_id, perk: @perk.id), method: :path) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_left %>
+  </div>
