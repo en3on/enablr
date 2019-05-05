@@ -5,9 +5,6 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $<%= @amount %></span>
-    </label>
   </article>
 
   <%= hidden_field_tag :amount, @amount %>
