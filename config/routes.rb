@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     resources :perks
   end
 
-  post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create', as: 'project_enablr'
+  resources :charges
+
+  post '/perk_charge/:perk_id', to: 'charges#perk_charge', as: 'perk_charge'
+
+  get '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create', as: 'project_enablr'
+  post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create' 
   delete '/projects/:project_id/enablrs', to: 'project_enablrs#destroy', as: 'delete_project_enablr'
   get '/enablrs/:id', to: 'project_enablrs#edit', as: 'edit_project_enablr'
   patch '/enablrs/:id', to: 'project_enablrs#update'
