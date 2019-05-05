@@ -14,12 +14,18 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create({
       customer: customer.id,
       amount: @amount,
-      description: @perk.rewards,
+      description: @perk.name,
       currency: 'aud'
     })
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+  end
+
+  def show
+    @amount = params[:amount]
+    @perk = Perk.find(params[:perk_id])
+    @project = Project.find(@perk.project_id)
   end
 end
