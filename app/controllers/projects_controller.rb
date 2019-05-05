@@ -45,6 +45,8 @@ class ProjectsController < ApplicationController
     user = current_user
 
     user.projects.destroy(params[:id])
+
+    redirect_to projects_path
   end
 
   private
