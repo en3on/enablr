@@ -5,6 +5,8 @@ class ChargesController < ApplicationController
   def create
     @amount = params[:amount]
     @perk = Perk.find(params[:perk_id])
+    @user = User.find(params[:user_id])
+    @project = Project.find(@perk.project_id)
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -18,10 +20,19 @@ class ChargesController < ApplicationController
       currency: 'aud'
     })
 
+    redirect_to project_enablr_path(
+      pledged_amount: @amount,
+      user_id: @user.id,
+      project_id: @project.id,
+      perk_id: @perk.id
+    )
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+
 
   def show
     @amount = params[:amount]
