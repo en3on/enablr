@@ -28,4 +28,15 @@ class ChargesController < ApplicationController
     @perk = Perk.find(params[:perk_id])
     @project = Project.find(@perk.project_id)
   end
+
+  def perk_charge
+    @perk = Perk.find(params[:perk_id])
+    @project = Project.find(@perk.project_id)
+    @amount = params[:charge][:amount]
+    @user = User.find(params[:charge][:user_id])
+
+    render 'charges/perk_charge'
+  end
+
+  private
 end

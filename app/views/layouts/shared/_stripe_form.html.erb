@@ -10,9 +10,12 @@
     </label>
   </article>
 
+  <%= hidden_field_tag :amount, @amount %>
+  <%= hidden_field_tag :perk_id, @perk.id %>
+
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-description="Enable <%= @project.name %>"
-        data-amount="<%= @amount %>"
+        data-amount="<%= (@amount.to_i * 100) %>"
         data-locale="auto"></script>
 <% end %>

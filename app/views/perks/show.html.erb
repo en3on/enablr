@@ -10,5 +10,17 @@
   <% unless @perk.unlimited %>
     <p>Amount Left: <%= @perk.amount_left %></p>
   <% end %>
+<% end %>
 
-  <%= form_for 
+<%= form_for(:charge, url: perk_charge_path(perk_id: @perk.id)) do |f| %> 
+  <div class="field">
+    <%= f.label :amount, "Pledge amount: " %>
+    <%= f.number_field :amount, min: @perk.minimum_amount, step: 1 %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= f.submit 'Enable!' %>
+  </div>
+<% end %>
