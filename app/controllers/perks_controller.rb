@@ -12,7 +12,8 @@ class PerksController < ApplicationController
 
     user_id = project.user_id
 
-    perk = project.perks.new(perk_params(params[:perk]), user_id: user_id)
+    perk = project.perks.new(perk_params(params))
+    perk.user_id = user_id
     puts "Name: #{perk.name}"
 
     if perk.save
@@ -24,6 +25,6 @@ class PerksController < ApplicationController
 
   private
   def perk_params(params)
-    params.permit(:name, :rewards, :minimum_amount, :amount_left)
+    params.require(:perk).permit(:name, :rewards, :minimum_amount, :amount_left)
   end
 end
