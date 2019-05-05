@@ -1,13 +1,14 @@
-// Put navbar code here
+.current-user {
+  margin: 0px 20px;
+}
 
-// .form-control {
-//   border-radius: 50px !important;
-//   height: 30px !important;
-// }
-
-.image-avatar {
+.navbar-image-avatar {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   background-color: black;
+}
+
+.btn.enablr {
+  display: flex;
 }
