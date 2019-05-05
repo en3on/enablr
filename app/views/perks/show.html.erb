@@ -1,0 +1,15 @@
+<h1>Perk for <%= @project.name %></h1>
+
+<h3><%= @perk.name %></h3>
+
+<h5>Minimum Amount: <%= @perk.minimum_amount %></h5>
+
+<p>Rewards: <%= @perk.rewards %></p>
+
+<% unless @perk.unlimited %>
+  <% if @perk.amount_left > 0 %>
+    <p>Amount Left: <%= @perk.amount_left %></p>
+  <% else %>
+      <p>SOLD OUT!</p>
+    <% end %>
+<% end %>

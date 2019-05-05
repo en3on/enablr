@@ -2,6 +2,7 @@ class ProjectEnablr < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :project
+  belongs_to :perk
   
   validates :user_id,
             :project_id,

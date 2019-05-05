@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def create
     user = current_user
 
-    project = user.projects.new(project_params(params[:project]))
+    project = user.projects.new(project_params(params))
 
     if project.save
       redirect_to project
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
     user = current_user
     project = user.projects.find(params[:id])
 
-    project.update(project_params(params[:project]))
+    project.update(project_params(params))
 
     redirect_to project
   end
@@ -45,11 +45,13 @@ class ProjectsController < ApplicationController
     user = current_user
 
     user.projects.destroy(params[:id])
+
+    redirect_to projects_path
   end
 
   private
   def project_params(params)
-    params.permit(:name, :description, :hardware, :target_amount, :target_date, :category, :country, :city)
+    params.require(:project).permit(:name, :description, :hardware, :target_amount, :target_date, :category, :country, :city)
   end
 
 end

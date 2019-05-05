@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
-  resources :projects
+  resources :projects do
+    resources :perks
+  end
 
   post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create', as: 'project_enablr'
   delete '/projects/:project_id/enablrs', to: 'project_enablrs#destroy', as: 'delete_project_enablr'

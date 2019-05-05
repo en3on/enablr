@@ -8,6 +8,26 @@
 <p>Location: <%= "#{@project.city}, #{@project.country}" %></p>
 <p>Enablers: <%= @project.backer_amount %></p>
 
+<h3>Perks</h3>
+
+<ul>
+  <% @project.perks.each do |perk| %>
+    <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
+      <li>
+      <%= perk.name %>
+      <% if can? :edit, perk %>
+        <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
+        <%= link_to "Delete", project_perk_path(project_id: @project.id, id: perk.id), method: :delete %>
+      <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if can? :create, Perk %>
+  <%= link_to "New Perk", new_project_perk_path(project_id: @project.id) %>
+<% end %>
+
 <% if user_signed_in? %>
   <% if can? :create, ProjectEnablr.new(project_id: @project, user_id: current_user.id) %>
     <%= link_to 'Enable Project', project_enablr_path(user_id: current_user.id, project_id: @project.id, pledged_amount: 20), method: :post %>

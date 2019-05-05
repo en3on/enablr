@@ -15,6 +15,7 @@ class Ability
     return unless user.fundraiser?
 
     can :manage, Project, user_id: user.id
+    can :manage, Perk, user_id: user.id
     
     # The first argument to `can` is the action you are giving the user
     # permission to do.
