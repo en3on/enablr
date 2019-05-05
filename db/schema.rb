@@ -33,9 +33,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_081659) do
     t.integer "amount_left"
     t.string "name"
     t.string "rewards"
-    t.bigint "user_id"
     t.index ["project_id"], name: "index_perks_on_project_id"
-    t.index ["user_id"], name: "index_perks_on_user_id"
   end
 
   create_table "project_enablrs", force: :cascade do |t|
@@ -86,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_05_05_081659) do
 
   add_foreign_key "comments", "project_enablrs"
   add_foreign_key "perks", "projects"
-  add_foreign_key "perks", "users"
   add_foreign_key "project_enablrs", "perks"
   add_foreign_key "project_enablrs", "projects"
   add_foreign_key "project_enablrs", "users"
