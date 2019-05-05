@@ -5,9 +5,18 @@
 //   height: 30px !important;
 // }
 
+.current-user {
+  margin: 0px 20px;
+}
+
 .image-avatar {
+  margin: 0px 20px;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   background-color: black;
+}
+
+.btn.enablr {
+  display: flex;
 }
