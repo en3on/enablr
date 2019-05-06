@@ -38,25 +38,4 @@
   <%= link_to 'Edit', edit_project_path, method: :get %>
 <% end %>
 
-<h4>Comments</h4>
-
-<ul>
-  <% @comments.each do |comment| %>
-    <% user = User.find(
-      ProjectEnablr.find(comment.project_enablr_id).user_id
-    ) %>
-    <li>
-      <%= "#{user.first_name} #{user.last_name} at #{comment.created_at.strftime("%-d %B %Y at %l:%M%p")}" %>
-      <br>
-      <%= comment.content %><br>
-      <% if can? :destroy, comment %>
-        <%= link_to "Edit", edit_project_comment_path(project_id: @project.id, id: comment.id) %>
-        <%= link_to "Delete", project_comment_path(comment.id), method: :delete %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<% unless ProjectEnablr.find_by(user_id: current_user.id, project_id: @project.id).nil? %>
-  <%= link_to "New Comment", new_project_comment_path(project_id: @project.id) %>
-<% end %>
+<%= render 'layouts/shared/comments' %>
