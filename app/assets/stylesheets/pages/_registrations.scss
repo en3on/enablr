@@ -13,7 +13,7 @@
   grid-template-columns: 1fr 1fr;
   background-color: white;
   width: 700px;
-  height: 600px;
+  height: 700px;
   border: 1px solid black;
   border-radius: 50px;
 }
@@ -78,4 +78,10 @@
 
 .field {
   margin: 10px 0px;
+}
+
+.actions.update {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
