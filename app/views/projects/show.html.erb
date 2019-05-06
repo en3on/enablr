@@ -46,7 +46,7 @@
       ProjectEnablr.find(comment.project_enablr_id).user_id
     ) %>
     <li>
-      <%= "#{user.first_name} #{user.last_name} at #{comment.created_at.strftime("%-d %B %Y")}" %>
+      <%= "#{user.first_name} #{user.last_name} at #{comment.created_at.strftime("%-d %B %Y at %l:%M%p")}" %>
       <br>
       <%= comment.content %>
     </li>
