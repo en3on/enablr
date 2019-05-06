@@ -48,8 +48,8 @@
 <% end %>
 
 <% if can? :destroy, @project %>
-  <%= link_to 'Delete', project_path, method: :delete %>
-  <%= link_to 'Edit', edit_project_path, method: :get %>
+  <%= link_to 'Delete Project', project_path, method: :delete %>
+  <%= link_to 'Edit Project', edit_project_path, method: :get %>
 <% end %>
 
 <%= render 'layouts/shared/comments' %>
