@@ -29,6 +29,8 @@
       <%= perk.name %>
       <% if can? :edit, perk %>
         <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
+      <% end %>
+      <% if can? :destroy, perk %>
         <%= link_to "Delete", project_perk_path(project_id: @project.id, id: perk.id), method: :delete %>
       <% end %>
       </li>
@@ -46,8 +48,8 @@
 <% end %>
 
 <% if can? :destroy, @project %>
-  <%= link_to 'Delete', project_path, method: :delete %>
-  <%= link_to 'Edit', edit_project_path, method: :get %>
+  <%= link_to 'Delete Project', project_path, method: :delete %>
+  <%= link_to 'Edit Project', edit_project_path, method: :get %>
 <% end %>
 
 <%= render 'layouts/shared/comments' %>
