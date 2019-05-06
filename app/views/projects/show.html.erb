@@ -38,3 +38,17 @@
   <%= link_to 'Edit', edit_project_path, method: :get %>
 <% end %>
 
+<h4>Comments</h4>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <% user = User.find(
+      ProjectEnablr.find(comment.project_enablr_id).user_id
+    ) %>
+    <li>
+      <%= "#{user.first_name} #{user.last_name} at #{comment.created_at.strftime("%-d %B %Y")}" %>
+      <br>
+      <%= comment.content %>
+    </li>
+  <% end %>
+</ul>
