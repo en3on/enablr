@@ -8,12 +8,11 @@
         <div class="project-image"></div>
       <% end %>
       <% @user = User.find(project.user_id) %>
-      <p>Name: <%= project.name %></p>
+      <p><%= project.name %></p>
       <p><%= project.hardware ? 'Hardware' : 'Software' %></p>
-      <p>Current Amount: <%= project.current_amount %></p>
-      <p>Target Amount: <%= project.target_amount %></p>
+      <p>Current Amount: $<%= project.current_amount %></p>
+      <p>Target Amount: $<%= project.target_amount %></p>
       <p>Category: <%= project.category %></p>
-      <p>Location: <%= "#{project.city}, #{project.country}" %></p>
       <p>Target Date: <%= project.target_date.strftime("%-d %B %Y") %></p>
       <p>By: <%= "#{@user.first_name} #{@user.last_name}" %></p>
     </div>

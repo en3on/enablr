@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .project-card {
@@ -17,13 +17,16 @@
   margin: 5px 5px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
 }
 
 .project-image {
-  height: 250px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 314px;
+  width: 350px;
   background-color: black;
 }
 
@@ -34,4 +37,11 @@
   flex-direction: column;
   height: calc(100vh - 66px);
   width: 100vw;
+}
+
+.projects-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
 }
