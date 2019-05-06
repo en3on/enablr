@@ -10,6 +10,7 @@ class ProjectEnablrsController < ApplicationController
     if !ProjectEnablr.already_enabled?(project.id, user.id)
       if enablr.save
         project.increment :current_amount, params[:pledged_amount].to_i
+        project.increment :backer_amount, 1
         project.save
         redirect_to project
       else
@@ -27,6 +28,7 @@ class ProjectEnablrsController < ApplicationController
 
     if user.project_enablrs.destroy(enablr.id)
       project.decrement :current_amount, enablr.pledged_amount
+      project.decrement :backer_amount, 1
       project.save
       redirect_to user_profile_path(user.id)
     else
