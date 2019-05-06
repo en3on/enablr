@@ -1,3 +1,27 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-card {
+  border-style: solid;
+  width: 30%;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.project-image {
+  height: 200px;
+}

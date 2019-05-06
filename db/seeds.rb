@@ -1,53 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts 'Start of seeding'
 
-puts 'creating projects'
+puts 'Creating projects with perks...'
+
 10.times do
   project = FactoryBot.create(:random)
-  user = User.find(project.user_id)
 
-  puts "Created project #{project.name} for #{user.first_name} #{user.last_name}"
+  puts "Creating project: #{project.name}"
+
+  rand(1..10).times do
+    perk = FactoryBot.build(:random_perk_without_project)
+    perk.project_id = project.id
+
+    puts "  Creating perk: #{perk.name}"
+
+    perk.save
+  end
 end
 
-puts 'creating test standard user'
-user = FactoryBot.build(:standard)
-user.email = 'standard@test.com'
-user.first_name = 'standard_first'
-user.last_name = 'standard_last'
+puts 'Creating test users...'
 
-user.save
+fundraiser = FactoryBot.build(:fundraiser)
+fundraiser.email = 'fundraiser@test.com'
 
-puts 'created test standard user'
-puts
-puts
-puts "    Email: #{user.email}"
-puts "    Password: #{user.password}"
-puts
-puts
+standard = FactoryBot.build(:standard)
+standard.email = 'standard@test.com'
 
+fundraiser.save
+standard.save
 
+2.times { puts }
+puts 'Fundraiser User'
+puts "  email: #{fundraiser.email}"
+puts "  password: #{fundraiser.password}"
 
-puts 'creating test fundraiser user'
-user = FactoryBot.build(:fundraiser)
-user.email = 'fundraiser@test.com'
-user.first_name = 'fundraiser_first'
-user.last_name = 'fundraiser_last'
-
-user.save
-
-puts 'created test fundraiser user'
-puts
-puts
-puts "    Email: #{user.email}"
-puts "    Password: #{user.password}"
-puts
-puts
-
-puts 'Seeding complete'
+2.times { puts }
+puts 'Standard User'
+puts "  email: #{standard.email}"
+puts "  password: #{standard.password}"
