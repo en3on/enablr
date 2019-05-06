@@ -12,6 +12,12 @@ class Ability
 
     can :manage, ProjectEnablr, user_id: user.id
     can :manage, User, id: user.id
+
+    can :manage, Comment do |comment|
+      enablr = ProjectEnablr.find(comment.project_enablr_id)
+      enablr.user_id == user.id
+    end
+
     return unless user.fundraiser?
 
     can :manage, Project, user_id: user.id

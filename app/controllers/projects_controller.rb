@@ -11,15 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    @enablrs = ProjectEnablr.where(project_id: @project.id)
-
-    @comments = []
-
-    @enablrs.each do |enablr|
-      comments = Comment.where(project_enablr_id: enablr.id)
-
-      comments.each { |c| @comments << c }
-    end
+    @comments = Comment.where(project_id: @project.id)
   end
 
   def create
