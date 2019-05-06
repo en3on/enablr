@@ -38,6 +38,10 @@ class ChargesController < ApplicationController
     @amount = params[:amount]
     @perk = Perk.find(params[:perk_id])
     @project = Project.find(@perk.project_id)
+
+    if @perk.amount.zero?
+      redirect_to @perk, flash: { error: 'This perk is sold out!' }
+    end
   end
 
   def perk_charge

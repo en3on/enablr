@@ -10,6 +10,10 @@ private
     projects_path
   end
 
+  def after_sign_up_path_for(user)
+    projects_path
+  end
+
   protected
 
   def configure_permitted_parameters
