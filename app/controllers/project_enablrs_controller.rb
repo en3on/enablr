@@ -62,6 +62,6 @@ class ProjectEnablrsController < ApplicationController
 
   private
   def enablr_params
-    params.permit(:project_id, :user_id, :pledged_amount, :project_enablr, :id)
+    params.permit(:project_id, :user_id, :pledged_amount, :project_enablr, :id, :perk_id)
   end
 end
