@@ -1,3 +1,9 @@
+<% if flash[:error] %>
+  <div class="alert alert-warning" role="alert">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <h1>Perk for <%= @project.name %></h1>
 
 <h3><%= @perk.name %></h3>
