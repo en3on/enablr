@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :project_enablrs, dependent: :destroy
   has_many :projects, dependent: :destroy
 
+  has_one_attached :avatar
+
   private
   def password_valid?
     return unless password.present?
