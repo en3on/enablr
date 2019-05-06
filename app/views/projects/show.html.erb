@@ -29,6 +29,8 @@
       <%= perk.name %>
       <% if can? :edit, perk %>
         <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
+      <% end %>
+      <% if can? :destroy, perk %>
         <%= link_to "Delete", project_perk_path(project_id: @project.id, id: perk.id), method: :delete %>
       <% end %>
       </li>
