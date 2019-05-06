@@ -15,16 +15,22 @@
 <% if ProjectEnablr.already_enabled?(@project.id, current_user.id) %>
   <h3>You have already enabled this project!</h3>
 <% else %>
-  <%= form_for(:charge, url: perk_charge_path(perk_id: @perk.id)) do |f| %> 
-    <div class="field">
-      <%= f.label :amount, "Pledge amount: " %>
-      <%= f.number_field :amount, min: @perk.minimum_amount, step: 1 %>
-    </div>
 
-    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% if !@perk.amount_left.zero? %>
+    <%= form_for(:charge, url: perk_charge_path(perk_id: @perk.id)) do |f| %> 
+      <div class="field">
+        <%= f.label :amount, "Pledge amount: " %>
+        <%= f.number_field :amount, min: @perk.minimum_amount, step: 1 %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit 'Enable!' %>
-    </div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <div class="actions">
+        <%= f.submit 'Enable!' %>
+      </div>
+    <% end %>
+  <% else %>
+    <h3>Sold Out!</h3>
   <% end %>
+
 <% end %>
