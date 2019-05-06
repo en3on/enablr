@@ -3,8 +3,16 @@ class PerksController < ApplicationController
   authorize_resource
 
   def show
-    @perk = Perk.find(params[:id])
     @project = Project.find(params[:project_id])
+
+    if user_signed_in?
+      @perk = Perk.find(params[:id])
+    else
+      @comments = @project.comments.all
+
+      flash[:alert] = render_to_string(partial: 'layouts/shared/log_in_needed')
+      render 'projects/show'
+    end
   end
 
   def new

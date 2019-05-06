@@ -11,13 +11,28 @@
       <%= comment.content %><br>
       <% if can? :destroy, comment %>
         <%= link_to "Edit", edit_project_comment_path(project_id: @project.id, id: comment.id) %>
-        <%= link_to "Delete", project_comment_path(comment.id), method: :delete %>
+        <%= link_to "Delete", project_comment_path(project_id: @project.id, id: comment.id), method: :delete %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
-<% unless ProjectEnablr.find_by(user_id: current_user.id, project_id: @project.id).nil? %>
-  <%= link_to "New Comment", new_project_comment_path(project_id: @project.id) %>
-<% end %>
+<% if user_signed_in? %>
+  <% unless ProjectEnablr.find_by(user_id: current_user.id, project_id: @project.id).nil? %>
 
+    <%= form_for(:comment, url: project_comments_path(project_id: @project.id)) do |f| %>
+
+
+      <div class="field">
+        <%= f.text_area :content, placeholder: "Write your comment here..." %>
+      </div>
+
+      <div class="actions">
+        <%= f.hidden_field :project_id, value: @project.id %>
+        <%= f.submit "Comment" %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+<% end %>

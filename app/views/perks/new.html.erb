@@ -1,6 +1,6 @@
 <h1>Create new Perk for <%= @project.name %></h1>
 
-<%= form_for(@perk, url: project_perks_path) do |f| %>
+<%= form_for(:perk, url: project_perks_path) do |f| %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
