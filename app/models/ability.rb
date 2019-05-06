@@ -15,8 +15,11 @@ class Ability
     return unless user.fundraiser?
 
     can :manage, Project, user_id: user.id
-    can :manage, Perk, user_id: user.id
-    
+    can :manage, Perk do |perk|
+      project = Project.find(perk.project_id)
+      project.user_id == user.id
+    end
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

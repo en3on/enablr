@@ -15,11 +15,7 @@ class PerksController < ApplicationController
   def create
     project = Project.find(params[:project_id])
 
-    user_id = project.user_id
-
     perk = project.perks.new(perk_params(params))
-    perk.user_id = user_id
-    puts "Name: #{perk.name}"
 
     if perk.save
       redirect_to project
