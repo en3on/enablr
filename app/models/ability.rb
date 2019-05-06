@@ -21,9 +21,16 @@ class Ability
     return unless user.fundraiser?
 
     can :manage, Project, user_id: user.id
-    can :manage, Perk do |perk|
+    can %i[create update read], Perk do |perk|
       project = Project.find(perk.project_id)
       project.user_id == user.id
+    end
+
+    can :destroy, Perk do |perk|
+      project = Project.find(perk.project_id)
+      if project.user_id == user.id
+        perk.enablr_amount.zero?
+      end
     end
 
     # The first argument to `can` is the action you are giving the user
