@@ -11,7 +11,8 @@
 
 .project-card {
   border-style: solid;
-  width: 30%;
+  height: 600px;
+  width: 350px;
   padding: 5px 5px;
   margin: 5px 5px;
   display: flex;
@@ -21,7 +22,9 @@
 }
 
 .project-image {
-  height: 200px;
+  height: 250px;
+  width: 100%;
+  background-color: black;
 }
 
 .edit-profile-container {

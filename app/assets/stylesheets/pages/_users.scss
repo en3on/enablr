@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: grey;
 }
 
 .user-projects-container {
@@ -70,19 +71,21 @@
   align-items: center;
   grid-row: 1/2;
   grid-column: 1/2;
+  background-color: grey;
 }
 
 .profile-image-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+}
+
+img {
   height: 300px;
   width: 300px;
   border-radius: 50%;
-<<<<<<< HEAD
-  background-color: grey;
-=======
-
-  img {
-    height: 200px;
-    border-radius: 50%;
-  }
->>>>>>> master
+  object-fit: cover;
 }
