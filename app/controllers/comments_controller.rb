@@ -23,19 +23,28 @@ class CommentsController < ApplicationController
     redirect_to project
   end
 
-  def update
-    @project_enablr = ProjectEnablr.find(params[:project_enablr_id])
-    @comment = @project_enablr.comments.find(params[:id])
+  def edit
+    @comment = Comment.find(params[:id])
+  end
 
-    if @comment.update(comment_params)
-      redirect_to @comment
+  def update
+    @comment = Comment.find(params[:id])
+    project = Project.find(params[:project_id])
+
+    if @comment.update(update_comment_params(params))
+      redirect_to project, flash: { success: 'Successfully updated comment!' }
     else
-      render 'edit'
+      redirect_to edit_project_comment_path(project, @comment),
+        flash: { error: @comment.errors.full_messages.to_sentence }
     end
   end
 
   private
     def comment_params(params)
       params.require(:comment).permit(:content, :project_id)
+    end
+
+    def update_comment_params(params)
+      params.require(:comment).permit(:content)
     end
 end

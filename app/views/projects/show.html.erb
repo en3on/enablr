@@ -4,6 +4,12 @@
   </div>
 <% end %>
 
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
 <h1><%= @project.name %></h1>
 <p>Description: <%= @project.description %></p>
 <p><%= @project.hardware ? 'Hardware' : 'Software' %></p>
