@@ -16,16 +16,13 @@
 }
 
 .user-projects {
-  display: flex;
   grid-row: 1/2;
   grid-column: 2/3;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow-y: auto;
 }
 
 .user-projects-enabled-container {
-  border: 1px solid black;
+  // border: 1px solid black;
   grid-row: 1/4;
   grid-column: 3/4;
   overflow-y: auto;
@@ -40,14 +37,14 @@
   align-items: center;
 }
 
-.projects-title {
-  display: flex;
-  grid-row: 1/2;
-  grid-column: 2/3;
-  justify-content: center;
-  align-content: center;
-  margin: 20px 0px;
-}
+// .projects-title {
+//   display: flex;
+//   grid-row: 1/2;
+//   grid-column: 2/3;
+//   justify-content: center;
+//   align-content: center;
+//   margin: 20px 0px;
+// }
 
 // .enabled-projects-title {
 //   display: flex;
