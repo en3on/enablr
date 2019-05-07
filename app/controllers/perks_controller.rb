@@ -8,9 +8,11 @@ class PerksController < ApplicationController
     if user_signed_in?
       @perk = Perk.find(params[:id])
     else
-      @comments = @project.comments.all
+      @perks = @project.sort_perks_by_min_amount
+      @comments = @project.project_comments
 
       flash[:alert] = render_to_string(partial: 'layouts/shared/log_in_needed')
+
       render 'projects/show'
     end
   end

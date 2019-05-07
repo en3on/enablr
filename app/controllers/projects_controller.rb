@@ -10,8 +10,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @perks = @project.sort_perks_by_min_amount
+    @comments = @project.project_comments
 
-    @comments = Comment.where(project_id: @project.id)
+
   end
 
   def create
