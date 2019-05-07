@@ -13,19 +13,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: grey;
+}
+
+.user-projects-container {
+  grid-row: 1/4;
+  grid-column: 2/3;
+  overflow-y: auto;
 }
 
 .user-projects {
-  display: flex;
-  grid-row: 1/2;
+  grid-row: 1/4;
   grid-column: 2/3;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .user-projects-enabled-container {
-  border: 1px solid black;
+  // border: 1px solid black;
   grid-row: 1/4;
   grid-column: 3/4;
   overflow-y: auto;
@@ -40,14 +47,14 @@
   align-items: center;
 }
 
-.projects-title {
-  display: flex;
-  grid-row: 1/2;
-  grid-column: 2/3;
-  justify-content: center;
-  align-content: center;
-  margin: 20px 0px;
-}
+// .projects-title {
+//   display: flex;
+//   grid-row: 1/2;
+//   grid-column: 2/3;
+//   justify-content: center;
+//   align-content: center;
+//   margin: 20px 0px;
+// }
 
 // .enabled-projects-title {
 //   display: flex;
@@ -60,24 +67,25 @@
 
 .profile-image {
   display: flex;
+  justify-content: center;
+  align-items: center;
   grid-row: 1/2;
   grid-column: 1/2;
-  justify-content: center;
-  align-content: center;
+  background-color: grey;
 }
 
 .profile-image-avatar {
   display: flex;
-  grid-row: 1/2;
-  grid-column: 1/2;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
+}
 
-  img {
-    height: 200px;
-    border-radius: 50%;
-  }
+img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  object-fit: cover;
 }
