@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to project
     else
-      # errors!
+      redirect_to project, flash: { comment: comment.errors.full_messages.to_sentence }
     end
   end
 
