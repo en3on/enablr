@@ -11,7 +11,7 @@ class Project < ApplicationRecord
             :target_date,
             :category,
             presence: true
-  
+
   validates :description, length: { maximum: 500 }
 
   validates :target_amount, numericality: { greater_than_or_equal_to: 1 }
@@ -25,6 +25,24 @@ class Project < ApplicationRecord
   has_one_attached :picture
 
   before_create :set_initial_values, :assign_hardware_status
+
+  def sort_perks_by_min_amount
+    perks.order(minimum_amount: :asc)
+  end
+
+  def project_comments
+    Comment.where(project_id: id).order(created_at: :desc)
+  end
+
+  def percentage
+    (current_amount.to_f / target_amount) * 100.0
+  end
+
+  def decrease_amounts(amount)
+    decrement :current_amount, amount
+    decrement :backer_amount, 1
+    save
+  end
 
   private
   def set_initial_values

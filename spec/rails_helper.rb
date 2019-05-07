@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'devise'
 require 'capybara/rails'
 require_relative 'support/controller_macros'
+require_relative 'support/projectenablrs_macros'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -65,5 +66,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.extend ControllerMacros, type: :controller
+
+  config.extend ProjectEnablrMacros, type: :request
 
 end

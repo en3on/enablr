@@ -1,13 +1,16 @@
-<h1>Edit Pledge for <%= Project.find(@enablr.project_id).name %></h1>
 
-<%= form_for(:project_enablr, url: edit_project_enablr_path(@enablr), method: :patch) do |f| %>
-  <div class="field">
-    <%= f.label :pledged_amount %>
-    <%= f.number_field :pledged_amount, min: 1, step: 1, value: @enablr.pledged_amount %>
-  </div>
+<div class="edit-pledge-container">
+  <h1>Edit Pledge for <%= Project.find(@enablr.project_id).name %></h1>
 
-  <div class="actions">
-    <%= f.submit 'Update' %>
-  </div>
+  <%= form_for(:project_enablr, url: edit_project_enablr_path(@enablr), method: :patch) do |f| %>
+    <div class="field">
+      <%= f.label :pledged_amount %>
+      <%= f.number_field :pledged_amount, min: 1, step: 1, value: @enablr.pledged_amount %>
+    </div>
 
-<% end %>
+    <div class="actions">
+      <%= f.submit 'Update' %>
+    </div>
+
+  <% end %>
+</div>

@@ -23,7 +23,7 @@
 <h3>Perks</h3>
 
 <ul>
-  <% @project.perks.each do |perk| %>
+  <% @perks.each do |perk| %>
     <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
       <li>
       <%= perk.name %>
