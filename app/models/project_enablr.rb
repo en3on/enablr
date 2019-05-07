@@ -17,7 +17,13 @@ class ProjectEnablr < ApplicationRecord
     !ProjectEnablr.find_by(user_id: user_id, project_id: project_id).nil?
   end
 
+  def can_refund?
+    (DateTime.now.to_i - created_at.to_i) / 86_400 < 30
+  end
+
+
   private
+
   def own_project?
     return unless user_id.present?
 

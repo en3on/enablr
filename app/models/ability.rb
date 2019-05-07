@@ -10,7 +10,12 @@ class Ability
     can :read, :all
     return unless user.present?
 
-    can :manage, ProjectEnablr, user_id: user.id
+    can %i[create read], ProjectEnablr, user_id: user.id
+
+    can :delete, ProjectEnablr do |enablr|
+      enablr.can_refund? if user_id == user.id
+    end
+
     can :manage, User, id: user.id
 
     can :manage, Comment do |comment|
@@ -28,9 +33,7 @@ class Ability
 
     can :destroy, Perk do |perk|
       project = Project.find(perk.project_id)
-      if project.user_id == user.id
-        perk.enablr_amount.zero?
-      end
+      perk.enablr_amount.zero? if project.user_id == user.id
     end
 
     # The first argument to `can` is the action you are giving the user
