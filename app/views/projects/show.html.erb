@@ -48,8 +48,13 @@
         <% end %>
       </ul>
 
-      <% if can? :create, Perk.new(project_id: @project.id) %>
-        <%= link_to "New Perk", new_project_perk_path(project_id: @project.id) %>
+<ul>
+  <% @perks.each do |perk| %>
+    <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
+      <li>
+      <%= perk.name %>
+      <% if can? :edit, perk %>
+        <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
       <% end %>
 
       <% if user_signed_in? %>

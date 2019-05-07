@@ -10,8 +10,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @perks = @project.sort_perks_by_min_amount
+    @comments = @project.project_comments
 
-    @comments = Comment.where(project_id: @project.id)
+
   end
 
   def create
@@ -53,7 +55,17 @@ class ProjectsController < ApplicationController
 
   private
   def project_params(params)
-    params.require(:project).permit(:name, :description, :hardware, :target_amount, :target_date, :category, :country, :city)
+    params.require(:project).permit(
+      :name,
+      :description,
+      :hardware,
+      :target_amount,
+      :target_date,
+      :category,
+      :country,
+      :city,
+      :picture
+    )
   end
 
 end

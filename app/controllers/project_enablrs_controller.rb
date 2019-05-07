@@ -6,12 +6,17 @@ class ProjectEnablrsController < ApplicationController
     user = User.find(params[:user_id])
     enablr = user.project_enablrs.new(enablr_params)
     project = Project.find(params[:project_id])
+    perk = Perk.find(enablr.perk_id)
 
     if !ProjectEnablr.already_enabled?(project.id, user.id)
       if enablr.save
         project.increment :current_amount, params[:pledged_amount].to_i
         project.increment :backer_amount, 1
         project.save
+
+        perk.decrement :amount_left, 1
+        perk.save
+
         redirect_to project
       else
         enablr.errors.each { |e, v| puts "#{e}: #{v}" }
@@ -22,18 +27,24 @@ class ProjectEnablrsController < ApplicationController
   end
 
   def destroy
-    user = User.find(current_user.id)
-    project = Project.find(params[:project_id])
-    enablr = user.project_enablrs.find_by(project_id: project.id)
+    @project = Project.find(params[:project_id])
+    @user = current_user
+    @enablr = @user.project_enablrs.find_by_project_id(@project.id)
+    @perk = Perk.find(@enablr.perk_id)
 
-    if user.project_enablrs.destroy(enablr.id)
-      project.decrement :current_amount, enablr.pledged_amount
-      project.decrement :backer_amount, 1
-      project.save
-      redirect_to user_profile_path(user.id)
+    if @enablr.can_refund?
+      if @user.project_enablrs.destroy(@enablr.id)
+        @project.decrease_amounts(@enablr.pledged_amount)
+        redirect_to user_profile_path(@user.id), flash: { success: 'Successfully refunded project pledge' }
+
+      else
+        # errors!
+        render 'refund'
+      end
     else
-      # errors!
-      render user
+      flash[:alert] = render_to_string(partial: 'layouts/shared/refund_error')
+
+      render 'refund'
     end
 
   end
@@ -60,6 +71,13 @@ class ProjectEnablrsController < ApplicationController
       project.save
       redirect_to user_profile_path(current_user.id)
     end
+  end
+
+  def refund
+    @project = Project.find(params[:project_id])
+    @user = current_user
+    @enablr = @user.project_enablrs.find_by_project_id(@project.id)
+    @perk = Perk.find(@enablr.perk_id)
   end
 
   private
