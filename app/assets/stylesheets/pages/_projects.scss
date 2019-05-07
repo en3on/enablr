@@ -6,22 +6,42 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .project-card {
   border-style: solid;
-  width: 30%;
+  height: 600px;
+  width: 350px;
   padding: 5px 5px;
   margin: 5px 5px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  background-size: cover !important;
-  background-position: center;
 }
 
 .project-image {
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 314px;
+  width: 350px;
+  background-color: black;
+}
+
+.edit-profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 66px);
+  width: 100vw;
+}
+
+.projects-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
 }
