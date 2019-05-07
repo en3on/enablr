@@ -20,7 +20,6 @@
     <div class="project-image-show"></div>
   </div>
   <div class="project-description">
-    <h4><%= @project.name %></h4>
     <p><%= @project.hardware ? 'Hardware' : 'Software' %></p>
     <p>Category: <%= @project.category %></p>
     <p>Location: <%= "#{@project.city}, #{@project.country}" %></p>
@@ -33,7 +32,7 @@
     <div class="perks">
       <h3>Perks</h3>
       <ul>
-        <% @project.perks.each do |perk| %>
+        <% @perks.each do |perk| %>
           <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
             <li>
             <%= perk.name %>
@@ -48,13 +47,8 @@
         <% end %>
       </ul>
 
-<ul>
-  <% @perks.each do |perk| %>
-    <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
-      <li>
-      <%= perk.name %>
-      <% if can? :edit, perk %>
-        <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
+      <% if can? :create, Perk.new(project_id: @project.id) %>
+        <%= link_to "New Perk", new_project_perk_path(project_id: @project.id) %>
       <% end %>
 
       <% if user_signed_in? %>

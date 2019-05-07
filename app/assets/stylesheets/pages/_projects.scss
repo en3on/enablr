@@ -68,14 +68,12 @@
 }
 
 .project-description {
-  margin-left: 5px;
   display: flex;
-  grid-row: 1/4;
-  grid-column: 4/5;
+  grid-row: 4/5;
+  grid-column: 2/4;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 1px black;
 }
 
 .perks-container {
@@ -83,20 +81,22 @@
   display: flex;
   grid-row: 1/4;
   grid-column: 1/2;
-  flex-direction: column;
   width: 100%;
   border: solid 1px black;
   background-color: aqua;
 }
 
 .comments-container {
-  margin-top: 10px;
   display: flex;
-  grid-row: 4/5;
-  grid-column: 2/4;
+  grid-row: 1/5;
+  grid-column: 4/5;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid 1px black;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 }
 
 .project-show-image-container {
@@ -114,4 +114,10 @@
   height: 75%;
   width: 75%;
   background-color: black;
+}
+
+.user-comment-box {
+  margin: 5px 5px;
+  border: solid 1px black;
+  border-radius: 1px;
 }

@@ -16,53 +16,63 @@
     <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
     <p>Joined <%= @user.created_at.strftime("%-d %B %Y") %></p>
     <p><%= @user.fundraiser ? 'Fundraiser' : 'Standard' %></p>
-    <p><%= "#{@user.city}, #{@user.country}" %></p>
     <p><%= @user.email %></p>
+    <p><%= "#{@user.city}, #{@user.country}" %></p>
     <%= link_to edit_user_registration_path(@user.id), class: "btn btn-default" do %>
       <i class="fas fa-edit"></i>
     <% end %>
   </div>
   <div class="user-projects-container">
-    <div class="my-projects-title"><h1>My Projects</h1></div>
+    <div class="my-projects-title"><h1>PROJECTS</h1></div>
     <div class="user-projects">  
       <% @projects.each do |project| %>
         <div class="user-projects-profile-card">
-        <p><%= project.name %></p>
-        <p><%= project.category %></p>
-        <p>Current: $<%= project.current_amount %></p>
-        <p>Target: $<%= project.target_amount %></p>
-        <%= link_to project_path(project.id), class: "btn btn-default" do %>
-          <i class="fas fa-eye"></i> 
-        <% end %>
-        <%= link_to edit_project_path(project.id), class: "btn btn-default" do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
+        <div class="user-card-name"><%= project.name %></div>
+        <div class="user-card-due">Due: <%= project.target_date.strftime("%d/%m/%Y") %></div>
+        <div class="user-card-current">
+          <div><%= project.category %></div>
+          <div>Current: $<%= project.current_amount %></div>
+          <div>Target: $<%= project.target_amount %></div>
+        </div>
+        <div class="user-project-buttons">
+          <%= link_to project_path(project.id), class: "btn" do %>
+            <i class="fas fa-eye"></i> 
+          <% end %>
+          <%= link_to edit_project_path(project.id), class: "btn" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
       </div>
       <% end %>
     </div>
   </div>
   <div class="user-projects-enabled-container">
     <div class="enabled-projects-title">
-      <h1>Enabled Projects</h1>
+      <h1>ENABLED</h1>
     </div>
     <div class="user-projects-enabled"> 
       <% @user.project_enablrs.each do |enabled| %>
       <div class="user-enabled-projects-profile-card">
         <% @enabled_project = Project.find(enabled.project_id) %>
         <% @project_owner = User.find(@enabled_project.user_id) %>
-        <p><%= @enabled_project.name %></p>
-        <p><%= @enabled_project.category %></p>
-        <p>Enabled: $<%= enabled.pledged_amount %></p>
-        <p>Current: $<%= @enabled_project.current_amount %></p>
-        <p>Target: $<%= @enabled_project.target_amount %></p>
-        <%= link_to project_path(@enabled_project.id), class: "btn btn-default" do %>
-          <i class="fas fa-eye"></i> 
-        <% end %>
-        <% if can? :destroy, enabled %>
-          <%= link_to project_enablr_refund_path(@enabled_project.id, @user.id) , class: 'btn btn-default' do %>
-            <i class="fas fa-ban"></i>
+        <div class="user-card-name"><%= @enabled_project.name %></div>
+        <div class="user-card-due">Due: <%= @enabled_project.target_date.strftime("%d/%m/%Y") %></div>
+        <div class="user-card-current">
+          <div><%= @enabled_project.category %></div>
+          <div>Enabled: $<%= enabled.pledged_amount %></div>
+          <div>Current: $<%= @enabled_project.current_amount %></div>
+          <div>Target: $<%= @enabled_project.target_amount %></div>
+        </div>
+        <div class="user-project-buttons">
+          <%= link_to project_path(@enabled_project.id), class: "btn btn-default" do %>
+            <i class="fas fa-eye"></i> 
           <% end %>
-        <% end %>
+          <% if can? :destroy, enabled %>
+            <%= link_to project_enablr_refund_path(@enabled_project.id, @user.id) , class: 'btn btn-default' do %>
+              <i class="fas fa-ban"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
         <% end %>
     </div>
