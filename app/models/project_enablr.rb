@@ -21,6 +21,11 @@ class ProjectEnablr < ApplicationRecord
     (DateTime.now.to_i - created_at.to_i) / 86_400 < 30
   end
 
+  def percentage_of_project
+    total = Project.find(project_id).target_amount
+
+    (pledged_amount.to_f / total) * 100.0
+  end
 
   private
 

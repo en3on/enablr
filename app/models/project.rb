@@ -34,6 +34,16 @@ class Project < ApplicationRecord
     Comment.where(project_id: id).order(created_at: :desc)
   end
 
+  def percentage
+    (current_amount.to_f / target_amount) * 100.0
+  end
+
+  def decrease_amounts(amount)
+    decrement :current_amount, amount
+    decrement :backer_amount, 1
+    save
+  end
+
   private
   def set_initial_values
     self.current_amount = 0

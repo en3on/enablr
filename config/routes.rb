@@ -34,10 +34,10 @@ Rails.application.routes.draw do
   get '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create',
                                                 as: 'project_enablr'
   get '/projects/:project_id/enablrs/:user_id/refund',
-      to: 'project_enablrs#refund'
-  post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create'
+      to: 'project_enablrs#refund', as: 'project_enablr_refund'
   delete '/projects/:project_id/enablrs', to: 'project_enablrs#destroy',
                                           as: 'delete_project_enablr'
+  post '/projects/:project_id/enablrs/:user_id', to: 'project_enablrs#create'
   get '/enablrs/:id', to: 'project_enablrs#edit', as: 'edit_project_enablr'
   patch '/enablrs/:id', to: 'project_enablrs#update'
 

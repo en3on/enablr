@@ -10,11 +10,9 @@ class Ability
     can :read, :all
     return unless user.present?
 
-    can %i[create read], ProjectEnablr, user_id: user.id
+    can %i[create read destroy], ProjectEnablr, user_id: user.id
 
-    can :delete, ProjectEnablr do |enablr|
-      enablr.can_refund? if user_id == user.id
-    end
+    can :refund, ProjectEnablr, user_id: user.id
 
     can :manage, User, id: user.id
 
