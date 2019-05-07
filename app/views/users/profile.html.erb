@@ -17,11 +17,12 @@
     <% end %>
   </div>
   <div class="user-projects-container">
-    <div class="user-projects">
-      <h1>My Projects</h1>
+    <div class="my-projects-title"><h1>My Projects</h1></div>
+    <div class="user-projects">  
       <% @projects.each do |project| %>
+        <div class="user-projects-profile-card">
         <p><%= project.name %></p>
-        <p><%= project.hardware ? 'Hardware' : 'Software' %></p>
+        <p><%= project.category %></p>
         <p>Current: $<%= project.current_amount %></p>
         <p>Target: $<%= project.target_amount %></p>
         <%= link_to project_path(user_id: @user.id, id: project.id), class: "btn btn-default" do %>
@@ -30,17 +31,21 @@
         <%= link_to edit_project_path(project.id), class: "btn btn-default" do %>
           <i class="fas fa-edit"></i>
         <% end %>
+      </div>
       <% end %>
     </div>
   </div>
   <div class="user-projects-enabled-container">
-    <div class="user-projects-enabled">
+    <div class="enabled-projects-title">
       <h1>Enabled Projects</h1>
+    </div>
+    <div class="user-projects-enabled"> 
       <% @user.project_enablrs.each do |enabled| %>
+      <div class="user-enabled-projects-profile-card">
         <% @enabled_project = Project.find(enabled.project_id) %>
         <% @project_owner = User.find(@enabled_project.user_id) %>
         <p><%= @enabled_project.name %></p>
-        <p><%= @enabled_project.hardware ? 'Hardware' : 'Software' %></p>
+        <p><%= @enabled_project.category %></p>
         <p>Enabled: $<%= enabled.pledged_amount %></p>
         <p>Current: $<%= @enabled_project.current_amount %></p>
         <p>Target: $<%= @enabled_project.target_amount %></p>
@@ -52,7 +57,7 @@
             <i class="fas fa-ban"></i>
           <% end %>
         <% end %>
-
+      </div>
         <% end %>
     </div>
   </div>
