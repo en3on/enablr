@@ -6,12 +6,17 @@ class ProjectEnablrsController < ApplicationController
     user = User.find(params[:user_id])
     enablr = user.project_enablrs.new(enablr_params)
     project = Project.find(params[:project_id])
+    perk = Perk.find(enablr.perk_id)
 
     if !ProjectEnablr.already_enabled?(project.id, user.id)
       if enablr.save
         project.increment :current_amount, params[:pledged_amount].to_i
         project.increment :backer_amount, 1
         project.save
+
+        perk.decrement :amount_left, 1
+        perk.save
+
         redirect_to project
       else
         enablr.errors.each { |e, v| puts "#{e}: #{v}" }
