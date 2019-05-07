@@ -35,6 +35,9 @@ class ProjectEnablrsController < ApplicationController
     if @enablr.can_refund?
       if @user.project_enablrs.destroy(@enablr.id)
         @project.decrease_amounts(@enablr.pledged_amount)
+
+        EnablrMailer.with(user: @user, enablr: @enablr).refund_enablr_email.deliver_now
+
         redirect_to user_profile_path(@user.id), flash: { success: 'Successfully refunded project pledge' }
 
       else
