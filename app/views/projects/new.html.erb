@@ -17,8 +17,8 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
+    <%= f.label :pictures, for: 'pictures[]' %>
+    <%= f.file_field :pictures, name: 'pictures[]', multiple: true %>
   </div>
   <div class="field">
     <%= f.label :target_amount %><br>
