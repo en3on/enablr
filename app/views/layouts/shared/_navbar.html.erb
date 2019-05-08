@@ -18,6 +18,7 @@
       </div> 
       <%= link_to user_profile_path(current_user) do %>
         <div class="navbar-image-avatar">
+          <% @user = current_user %>
           <%= render 'layouts/shared/profile_image' %>
         </div>
       <% end %>

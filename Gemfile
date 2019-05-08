@@ -40,6 +40,7 @@ gem 'cancancan'
 gem 'devise'
 
 gem 'bootstrap'
+gem 'jquery-rails'
 
 # AWS SDK gem
 gem 'aws-sdk-s3', require: false

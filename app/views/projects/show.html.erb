@@ -10,6 +10,7 @@
   </div>
 <% end %>
 
+
 <div class="projects-show-container">
   <div class="project-show-description-container">
     <div class="jumbotron jumbotron-fluid">
@@ -21,8 +22,9 @@
   </div>
 
   <div class="project-show-image-container">
-    <div class="project-image-show"></div>
+    <%= carousel_for(@project) %>
   </div>
+
   <div class="project-show-information-container">
       <div class="project-show-information">
       <div class="project-name"><%= @project.name %></div>
