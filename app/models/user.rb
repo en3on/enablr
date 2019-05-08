@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   private
+
   def password_valid?
     return unless password.present?
 

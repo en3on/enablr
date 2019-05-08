@@ -18,9 +18,7 @@
       </div> 
       <%= link_to user_profile_path(current_user) do %>
         <div class="navbar-image-avatar">
-          <% if current_user.avatar.attached? %>
-            <%= image_tag current_user.avatar %>
-          <% end %>
+          <%= render 'layouts/shared/profile_image' %>
         </div>
       <% end %>
     <% else %>
