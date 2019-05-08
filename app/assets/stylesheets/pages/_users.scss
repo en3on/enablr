@@ -43,7 +43,7 @@
   align-items: center;
   overflow-y: auto;
   scrollbar-width: none;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
 }
 
 .user-projects-enabled-container {
@@ -120,6 +120,7 @@
   width: 300px;
   margin: 10px;
   border-radius: 10px;
+  box-shadow: 5px 5px #888888;
 }
 
 .user-enabled-projects-profile-card {
@@ -131,6 +132,7 @@
   width: 300px;
   margin: 10px;
   border-radius: 10px;
+  box-shadow: 5px 5px #888888;
 }
 
 .user-project-buttons {
