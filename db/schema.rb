@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2019_05_06_052352) do
   end
 
   create_table "perks", force: :cascade do |t|
-    t.integer "minimum_amount"
-    t.boolean "unlimited"
-    t.integer "enablr_amount"
+    t.integer "minimum_amount", null: false
+    t.boolean "unlimited", null: false
+    t.integer "enablr_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "project_id"
@@ -72,16 +72,16 @@ ActiveRecord::Schema.define(version: 2019_05_06_052352) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "hardware"
-    t.integer "current_amount"
-    t.integer "target_amount"
-    t.datetime "target_date"
-    t.string "category"
-    t.string "country"
-    t.string "city"
-    t.integer "backer_amount"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "hardware", null: false
+    t.integer "current_amount", null: false
+    t.integer "target_amount", null: false
+    t.datetime "target_date", null: false
+    t.string "category", null: false
+    t.string "country", null: false
+    t.string "city", null: false
+    t.integer "backer_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -96,11 +96,11 @@ ActiveRecord::Schema.define(version: 2019_05_06_052352) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.boolean "fundraiser"
-    t.string "country"
-    t.string "city"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.boolean "fundraiser", null: false
+    t.string "country", null: false
+    t.string "city", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
