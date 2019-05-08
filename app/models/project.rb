@@ -1,9 +1,8 @@
 require 'date'
-require_relative 'modules/project_helper'
 
 class Project < ApplicationRecord
 
-  include ProjectCategories
+  include Categories
 
   validates :name,
             :description,
@@ -51,7 +50,7 @@ class Project < ApplicationRecord
   end
 
   def assign_hardware_status
-    self.hardware = ProjectCategories.hardware?(category)
+    self.hardware = Categories.hardware?(category)
   end
 
   def date_is_in_the_future

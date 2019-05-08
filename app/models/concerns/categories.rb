@@ -1,5 +1,4 @@
-module ProjectCategories
-
+module Categories
   @software_categories = [
                           '-- Software --',
                           'Mobile App',
@@ -46,5 +45,4 @@ module ProjectCategories
   def self.hardware?(category)
     @hardware_categories.include?(category)
   end
-
 end
