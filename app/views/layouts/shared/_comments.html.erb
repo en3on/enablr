@@ -5,15 +5,15 @@
     <% user = User.find(
       ProjectEnablr.find(comment.project_enablr_id).user_id
     ) %>
-    <li>
-      <%= "#{user.first_name} #{user.last_name} at #{comment.created_at.strftime("%-d %B %Y at %l:%M%p")}" %>
+    <div class="user-comment-box">
+      <%= "#{user.first_name} #{user.last_name} (#{comment.created_at.strftime("%-d %B %Y at %l:%M%p")})" %>
       <br>
       <%= comment.content %><br>
       <% if can? :destroy, comment %>
         <%= link_to "Edit", edit_project_comment_path(project_id: @project.id, id: comment.id) %>
         <%= link_to "Delete", project_comment_path(project_id: @project.id, id: comment.id), method: :delete %>
       <% end %>
-    </li>
+    </div>
   <% end %>
 </ul>
 
