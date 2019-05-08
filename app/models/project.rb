@@ -9,6 +9,7 @@ class Project < ApplicationRecord
             :target_amount,
             :target_date,
             :category,
+            :picture,
             presence: true
 
   validates :description, length: { maximum: 1000 }
