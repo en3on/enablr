@@ -12,7 +12,7 @@ class Project < ApplicationRecord
             :category,
             presence: true
 
-  validates :description, length: { maximum: 500 }
+  validates :description, length: { maximum: 1000 }
 
   validates :target_amount, numericality: { greater_than_or_equal_to: 1 }
 

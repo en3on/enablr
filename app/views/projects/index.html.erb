@@ -1,5 +1,7 @@
-<div class="projects-title">
-  <h1>Projects</h1>
+<div class="projects-index-container">
+  <div class="projects-title">
+    <h1>Projects</h1>
+  </div>
 </div>
 <div class="project-list">
   <% @projects.each do |project| %>
@@ -7,14 +9,22 @@
       <%= link_to project_path(project.id) do %>
         <div class="project-image"></div>
       <% end %>
-      <% @user = User.find(project.user_id) %>
-      <p><%= project.name %></p>
-      <p><%= project.hardware ? 'Hardware' : 'Software' %></p>
-      <p>Current Amount: $<%= project.current_amount %></p>
-      <p>Target Amount: $<%= project.target_amount %></p>
-      <p>Category: <%= project.category %></p>
-      <p>Target Date: <%= project.target_date.strftime("%-d %B %Y") %></p>
-      <p>By: <%= "#{@user.first_name} #{@user.last_name}" %></p>
+      <div class="project-index-description">
+        <% @user = User.find(project.user_id) %>
+        <div class="project-name">
+          <div><%= project.name %></div>
+        </div>
+        <div class="project-category">
+          <div><%= project.category %></div>
+          <div><%= project.country %></div>
+        </div>
+        <div class="project-amount">
+          <div>Current: $<%= project.current_amount %></div>
+          <div>Target: $<%= project.target_amount %></div>
+        </div>
+        <div class="project-date">Due: <%= project.target_date.strftime("%d/%m/%Y") %></div>
+        <div class="project-owner">By: <%= "#{@user.first_name} #{@user.last_name}" %></div>
+      </div>
     </div>
   <% end %>
 </div>
