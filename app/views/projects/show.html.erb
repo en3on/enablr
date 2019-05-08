@@ -56,30 +56,48 @@
     </div>
   </div> 
   <div class="perks-show-container">
-    <h3>Perks</h3>
-    <ul>
-      <% @perks.each do |perk| %>
-        <%= link_to project_perk_path(project_id: @project.id, id: perk.id) do %>
-          <li>
-          <%= perk.name %>
-          <% if can? :edit, perk %>
-            <%= link_to "Edit", edit_project_perk_path(project_id: @project.id, id: perk.id) %>
-          <% end %>
-          <% if can? :destroy, perk %>
-            <%= link_to "Delete", project_perk_path(project_id: @project.id, id: perk.id), method: :delete %>
-          <% end %>
-          </li>
+    <div class="perks-content">
+      <div><h3>Perks</h3></div>
+        <% @perks.each do |perk| %>
+        <div class="perks-box">
+          <div class="name-box">
+            <div><%= perk.name %></div>
+            <div>Pledge $<%= perk.minimum_amount %> or More</div>
+          </div>
+          <div class="perks-enablers"><%= perk.enablr_amount %> Enablers</div>
+          <div class="perks-left"><%= perk.amount_left %> Perks</div>
+          <div class="perk-rewards">
+            <div><p>Rewards:</p></div>            
+            <%= perk.rewards %>
+          </div>
+          <div class="user-comment-buttons">
+            <%= link_to project_perk_path(project_id: @project.id, id: perk.id), class: "btn" do %>
+              <i class="fas fa-eye"></i> 
+            <% end %>
+            <% if can? :edit, perk %>
+              <%= link_to edit_project_perk_path(project_id: @project.id, id: perk.id), class: "btn btn-default" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            <% end %>
+            <% if can? :destroy, perk %>
+              <%= link_to project_perk_path(project_id: @project.id, id: perk.id), class: "btn btn-default", method: :delete do %>
+                <i class="fas fa-trash"></i>
+              <% end %> 
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+
+      <% if can? :create, Perk.new(project_id: @project.id) %>
+        <%= link_to new_project_perk_path(project_id: @project.id), class: "btn btn-default" do %>
+          <i class="fas fa-plus"></i>
+        <% end %> 
+      <% end %>
+
+      <% if user_signed_in? %>
+        <% if can? :create, ProjectEnablr.new(project_id: @project, user_id: current_user.id) %>
         <% end %>
       <% end %>
-    </ul>
-
-    <% if can? :create, Perk.new(project_id: @project.id) %>
-      <%= link_to "New Perk", new_project_perk_path(project_id: @project.id) %>
-    <% end %>
-
-    <% if user_signed_in? %>
-      <% if can? :create, ProjectEnablr.new(project_id: @project, user_id: current_user.id) %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

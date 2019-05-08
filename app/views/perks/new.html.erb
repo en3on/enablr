@@ -1,24 +1,26 @@
-<h1>Create new Perk for <%= @project.name %></h1>
+<div class="edit-profile-container">
+  <h1>Create New Perk for <%= @project.name %></h1>
 
-<%= form_for(:perk, url: project_perks_path) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :rewards %><br>
-    <%= f.text_area :rewards %>
-  </div>
-  <div class="field">
-    <%= f.label :minimum_amount %>
-    <%= f.number_field :minimum_amount, min: 1, step: 1 %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_left, "Amount of enablrs that can enable this perk (Set to -1 for unlimited)" %><br>
-    <%= f.number_field :amount_left, min: -1, step: 1 %>
-  </div>
+  <%= form_for(:perk, url: project_perks_path) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :rewards %><br>
+      <%= f.text_area :rewards %>
+    </div>
+    <div class="field">
+      <%= f.label :minimum_amount %>
+      <%= f.number_field :minimum_amount, min: 1, step: 1 %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_left, "Amount of enablrs that can enable this perk (Set to -1 for unlimited)" %><br>
+      <%= f.number_field :amount_left, min: -1, step: 1 %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit 'Create' %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit 'Create' %>
+    </div>
+  <% end %>
+</div>
