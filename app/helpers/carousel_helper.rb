@@ -21,7 +21,7 @@ module CarouselHelper
       options = {
         id: "carousel-#{@project.id}",
         class: 'carousel slide',
-        data: { ride: 'carousel' }
+        data: { ride: false }
       }
 
       content_tag(:div, content, options)

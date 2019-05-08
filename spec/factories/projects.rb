@@ -28,7 +28,7 @@ FactoryBot.define do
     target_date { Faker::Date.forward(1_000) }
     country { Faker::Address.country }
     city { Faker::Address.city }
-    category { Categories.categories.sample[0] }
+    category { Categories.valid_categories.sample }
     user_id { create(:fundraiser).id }
   end
 end

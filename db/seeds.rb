@@ -5,6 +5,13 @@ puts 'Creating projects with perks...'
 10.times do
   project = FactoryBot.create(:random)
 
+  rand(1..5).times do
+    num = rand(1..18)
+    project.picture.attach(io: File.open("app/assets/images/test-images/#{num}.jpg"), filename: "#{num}.jpg")
+
+    puts "Attaching picture #{num}"
+  end
+
   puts "Creating project: #{project.name}"
 
   rand(1..10).times do
