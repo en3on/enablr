@@ -21,17 +21,28 @@
     <div class="project-image-show"></div>
   </div>
   <div class="project-show-information-container">
-    <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
-    <div>Category: <%= @project.category %></div>
-    <div>Location: <%= "#{@project.city}, #{@project.country}" %></div>
-    <div>Current Amount: <%= @project.current_amount %></div>
-    <div>Target Amount: <%= @project.target_amount %></div>
-    <div>Target Date: <%= @project.target_date.strftime("%d/%m/%Y") %></div>
-    <div>Enablers <%= @project.backer_amount %></div>
+      <div class="project-show-information">
+      <div class="project-name"><%= @project.name %></div>
+      <div class="project-group">
+        <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
+        <div>Category: <%= @project.category %></div>
+        <div>Location: <%= "#{@project.city}, #{@project.country}" %></div>
+        <div>Current Amount: <%= @project.current_amount %></div>
+        <div>Target Amount: <%= @project.target_amount %></div>
+      </div>
+      <div class="project-date">Due: <%= @project.target_date.strftime("%d/%m/%Y") %></div>
+      <div class="enablers">Enablers <%= @project.backer_amount %></div>
+      <div class="project-buttons">          
+        <%= link_to edit_project_path, class: "btn btn-default" do %>
+            <i class="fas fa-edit"></i>
+        <% end %>
         <% if can? :destroy, @project %>
-      <%= link_to 'Delete Project', project_path, method: :delete %>
-      <%= link_to 'Edit Project', edit_project_path, method: :get %>
-    <% end %>
+          <%= link_to project_path, class: "btn btn-default", method: :delete do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
