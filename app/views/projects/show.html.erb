@@ -10,6 +10,8 @@
   </div>
 <% end %>
 
+<%= render 'layouts/shared/carousel' %>
+
 <div class="projects-show-container">
   <div class="project-name-title">
     <h1><%= @project.name %></h1> 
@@ -17,9 +19,8 @@
   <div class="project-show-description-container">
     <div class="project-show-description"><%= @project.description %></div>
   </div>
-  <div class="project-show-image-container">
-    <%= render 'layouts/shared/carousel' %>
-  </div>
+
+
   <div class="project-show-information-container">
     <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
     <div>Category: <%= @project.category %></div>
