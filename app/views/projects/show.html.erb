@@ -11,12 +11,15 @@
 <% end %>
 
 <div class="projects-show-container">
-  <div class="project-name-title">
-    <h1><%= @project.name %></h1> 
-  </div>
   <div class="project-show-description-container">
-    <div class="project-show-description"><%= @project.description %></div>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= @project.name %></h1>
+      <p class="lead"><%= @project.description %></p>
+    </div>
+    </div>
   </div>
+
   <div class="project-show-image-container">
     <div class="project-image-show"></div>
   </div>
@@ -27,8 +30,8 @@
         <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
         <div>Category: <%= @project.category %></div>
         <div>Location: <%= "#{@project.city}, #{@project.country}" %></div>
-        <div>Current Amount: <%= @project.current_amount %></div>
-        <div>Target Amount: <%= @project.target_amount %></div>
+        <div>Current Amount: $<%= @project.current_amount %></div>
+        <div>Target Amount: $<%= @project.target_amount %></div>
       </div>
       <div class="project-date">Due: <%= @project.target_date.strftime("%d/%m/%Y") %></div>
       <div class="enablers">Enablers <%= @project.backer_amount %></div>
@@ -48,7 +51,9 @@
 
 <div class="projects-show-extended">    
   <div class="comments-container"> 
-    <%= render 'layouts/shared/comments' %>
+    <div class="comments-content">
+      <%= render 'layouts/shared/comments' %>
+    </div>
   </div> 
   <div class="perks-show-container">
     <h3>Perks</h3>
