@@ -72,7 +72,7 @@ class ProjectsController < ApplicationController
       :category,
       :country,
       :city,
-      :pictures
+      picture: []
     )
   end
 

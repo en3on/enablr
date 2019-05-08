@@ -21,7 +21,7 @@ class Project < ApplicationRecord
   has_many :project_enablrs, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  has_many_attached :pictures
+  has_many_attached :picture
 
   before_create :set_initial_values, :assign_hardware_status
 

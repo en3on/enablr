@@ -18,7 +18,7 @@
     <div class="project-show-description"><%= @project.description %></div>
   </div>
   <div class="project-show-image-container">
-    <div class="project-image-show"></div>
+    <%= render 'layouts/shared/carousel' %>
   </div>
   <div class="project-show-information-container">
     <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
