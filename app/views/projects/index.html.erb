@@ -8,7 +8,7 @@
     <div class="project-card">
       <%= link_to project_path(project.id) do %>
         <div class="project-image">
-          <%= carousel_for(project) %>
+          <%= carousel_for(project, false) %>
         </div>
       <% end %>
       <div class="project-index-description">

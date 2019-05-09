@@ -28,9 +28,7 @@
   </div>
 
   <div class="project-show-image-container">
-    <div class="project-image-show">
-      <%= carousel_for(@project) %>
-    </div>
+    <%= carousel_for(@project, @project.is_owner?(current_user)) %>
   </div>
 
   <div class="project-show-information-container">

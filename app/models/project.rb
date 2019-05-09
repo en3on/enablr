@@ -43,8 +43,10 @@ class Project < ApplicationRecord
     save
   end
 
-  def delete_photo(photo)
-    photo.errors.add('Photo could not be deleted! Please try again') unless photo.destroy
+  def is_owner?(user)
+    return if user.nil?
+
+    user_id == user.id
   end
 
   private
