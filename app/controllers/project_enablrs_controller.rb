@@ -15,6 +15,7 @@ class ProjectEnablrsController < ApplicationController
         project.save
 
         perk.decrement :amount_left, 1
+        perk.increment :enablr_amount, 1
         perk.save
 
         redirect_to project
