@@ -9,6 +9,10 @@ class Perk < ApplicationRecord
 
   before_create :set_unlimited, :set_enablr_amount
 
+  def self.is_own_project?(user_id, project_id)
+    user_id == Project.find(project_id).user_id
+  end
+
   private
 
   def set_enablr_amount

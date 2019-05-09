@@ -6,7 +6,13 @@ class PerksController < ApplicationController
     @project = Project.find(params[:project_id])
 
     if user_signed_in?
-      @perk = Perk.find(params[:id])
+
+      if !Perk.is_own_project?(current_user.id, @project.id)
+        @perk = Perk.find(params[:id])
+      else
+        redirect_to @project, flash: { error: 'You can not enable your own project!' }
+      end
+
     else
       @perks = @project.sort_perks_by_min_amount
       @comments = @project.project_comments
