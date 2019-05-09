@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  delete '/project/:project_id/pictures/:id', to: 'projects#delete_pic', as: 'delete_project_picture'
+
   resources :charges
 
   post '/perk_charge/:perk_id', to: 'charges#perk_charge', as: 'perk_charge'

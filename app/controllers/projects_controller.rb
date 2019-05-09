@@ -60,6 +60,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def delete_pic
+    picture = ActiveStorage::Attachment.find(params[:id])
+    project = Project.find(params[:project_id])
+
+    picture.purge
+    redirect_to project, flash: { success: 'Successfully deleted photo' }
+  end
+
   private
 
   def project_params(params)
