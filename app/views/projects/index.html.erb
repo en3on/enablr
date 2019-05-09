@@ -23,6 +23,7 @@
         <div class="project-amount">
           <div>Current: $<%= project.current_amount %></div>
           <div>Target: $<%= project.target_amount %></div>
+          <%= progress_bar_for(project) %>
         </div>
         <div class="project-date">Due: <%= project.target_date.strftime("%d/%m/%Y") %></div>
         <div class="project-owner">By: <%= "#{@user.first_name} #{@user.last_name}" %></div>
