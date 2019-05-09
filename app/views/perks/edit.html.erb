@@ -1,5 +1,5 @@
 <div class="edit-profile-container">
-  <h1>Edit Perk <%= @perk.name %></h1>
+  <h1>Edit Perk <%= @perk.name %> Perk</h1>
 
   <%= form_for(:perk, url: project_perk_path(project_id: @perk.project_id, id: @perk.id), method: :patch) do |f| %>
     <div class="field">

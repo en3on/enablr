@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="edit-profile-container">
-  <h1>Edit <%= @project.name %></h1>
+  <h1>Edit <%= @project.name %> Project</h1>
 
 <%= form_for(:project, url: project_path(@project), method: :patch, enctype: 'multipart/form-data') do |f| %>
   <div class="field">
@@ -20,7 +20,7 @@
     <%= f.label :picture %>
     <%= f.file_field :picture, multiple: true %>
   </div>
-  <div class="field">
+  <div class="field target-amount">
     <%= f.label :target_amount %>
     <%= f.number_field :target_amount, min: 1, step: 1 %>
   </div>
