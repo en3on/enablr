@@ -23,6 +23,8 @@
         <div class="project-amount">
           <div>Current: $<%= project.current_amount %></div>
           <div>Target: $<%= project.target_amount %></div>
+        </div>
+        <div class="progress-bar-container">
           <%= progress_bar_for(project) %>
         </div>
         <div class="project-date">Due: <%= project.target_date.strftime("%d/%m/%Y") %></div>
