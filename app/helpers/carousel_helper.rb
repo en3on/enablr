@@ -1,19 +1,20 @@
 # app/helpers/carousel_helper.rb
 
 module CarouselHelper
-  def carousel_for(project)
+  def carousel_for(project, is_owner)
     pictures = project.picture
-    Carousel.new(self, project, pictures).html
+    Carousel.new(self, project, pictures, is_owner).html
   end
 
   class Carousel
     attr_accessor :view
     delegate :link_to, :content_tag, :image_tag, :safe_join, to: :view
 
-    def initialize(view, project, pictures)
+    def initialize(view, project, pictures, is_owner)
       @view = view
       @project = project
       @pictures = pictures
+      @is_owner = is_owner
     end
 
     def html
@@ -64,11 +65,32 @@ module CarouselHelper
         class: 'd-block w-100'
       }
       slide_pic = image_tag(picture, picture_options)
+      caption = slide_caption(picture)
+
+      content = @is_owner ? safe_join([slide_pic, caption]) : slide_pic
+
       options = {
         class: index.zero? ? 'carousel-item active' : 'carousel-item'
       }
 
-      content_tag(:div, slide_pic, options)
+      content_tag(:div, content, options)
+    end
+
+    def slide_caption(picture)
+      i_tag = content_tag(:i, nil, class: 'fas fa-trash delete-pic-icon')
+
+      options = {
+        class: 'carousel-caption d-none d-md-block'
+      }
+
+      link_options = {
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+      }
+
+      link = link_to(i_tag, "/project/#{@project.id}/pictures/#{picture.id}", link_options)
+
+      content_tag(:div, link, options)
     end
 
     def controls
