@@ -67,7 +67,7 @@
             <div>Pledge $<%= perk.minimum_amount %> or More</div>
           </div>
           <div class="perks-enablers"><%= perk.enablr_amount %> Enablers</div>
-          <div class="perks-left"><%= perk.amount_left %> Perks</div>
+          <div class="perks-left"><%= perk.amount_left.negative? ? 'Unlimited' : "#{perk.amount_left} left" %></div>
           <div class="perk-rewards">
             <div><p>Rewards:</p></div>            
             <%= perk.rewards %>
