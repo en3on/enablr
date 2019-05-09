@@ -13,6 +13,10 @@
 
   <p>Rewards: <%= @perk.rewards %></p>
 
+  <% unless @perk.not_deliverable %>
+    <p>Est. Delivery Date: <%= @perk.estimated_delivery.strftime("%e %b %Y") %></p>
+  <% end %>
+
   <% if @perk.amount_left > 0 || @perk.unlimited %>
     <% unless @perk.unlimited %>
       <p>Amount Left: <%= @perk.amount_left %></p>

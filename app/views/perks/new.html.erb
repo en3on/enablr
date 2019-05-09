@@ -1,4 +1,10 @@
 <div class="edit-profile-container">
+  <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
   <h1>Create New Perk for <%= @project.name %></h1>
 
   <%= form_for(:perk, url: project_perks_path) do |f| %>
@@ -17,6 +23,12 @@
     <div class="field">
       <%= f.label :amount_left, "Amount of enablrs that can enable this perk (Set to -1 for unlimited)" %><br>
       <%= f.number_field :amount_left, min: -1, step: 1 %>
+    </div>
+    <div class="field">
+      <%= f.label :estimated_delivery, 'Estimated delivery date' %><br>
+      <%= f.date_field :estimated_delivery, min: Date.today %><br>
+      <%= f.label :not_deliverable, 'Check box if perk does NOT have a delivery date', class: 'font-weight-bold' %><br>
+      <%= f.check_box :not_deliverable %>
     </div>
 
     <div class="actions">

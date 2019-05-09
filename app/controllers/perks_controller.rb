@@ -29,14 +29,16 @@ class PerksController < ApplicationController
   end
 
   def create
-    project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id])
 
-    perk = project.perks.new(perk_params(params))
+    @perk = @project.perks.new(perk_params(params))
 
-    if perk.save
-      redirect_to project
+    if @perk.save
+      redirect_to @project
     else
-      perk.errors.each { |n, e| puts "#{n}: #{e}" }
+      flash[:error] = @perk.errors.full_messages.to_sentence
+
+      render 'new'
     end
   end
 
@@ -65,7 +67,15 @@ class PerksController < ApplicationController
   end
 
   private
+
   def perk_params(params)
-    params.require(:perk).permit(:name, :rewards, :minimum_amount, :amount_left)
+    params.require(:perk).permit(
+      :name,
+      :rewards,
+      :minimum_amount,
+      :amount_left,
+      :estimated_delivery,
+      :not_deliverable
+    )
   end
 end
