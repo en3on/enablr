@@ -19,7 +19,7 @@ class ProjectEnablrsController < ApplicationController
 
         redirect_to project
       else
-        enablr.errors.each { |e, v| puts "#{e}: #{v}" }
+        redirect_to project, flash: { error: enablr.errors.full_messages.to_sentence }
       end
     else
       puts 'already_enabled'
@@ -73,6 +73,10 @@ class ProjectEnablrsController < ApplicationController
 
       project.save
       redirect_to user_profile_path(current_user.id)
+    else
+      flash[:error] = @enablr.errors.full_messages.to_sentence
+
+      render 'edit'
     end
   end
 

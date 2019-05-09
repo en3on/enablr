@@ -47,13 +47,14 @@ class PerksController < ApplicationController
   end
 
   def update
-    perk = Perk.find(params[:id])
+    @perk = Perk.find(params[:id])
 
-    if perk.update(perk_params(params))
-      redirect_to project_path(perk.project_id)
+    if @perk.update(perk_params(params))
+      redirect_to project_path(@perk.project_id)
     else
-      # errors!
-      redirect_to edit
+      flash[:error] = @perk.errors.full_messages.to_sentence
+
+      render 'edit'
     end
   end
 
