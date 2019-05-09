@@ -32,7 +32,7 @@ module CarouselHelper
       options = {
         class: 'carousel-indicators'
       }
-      
+
       content_tag(:ol, safe_join(items), options)
     end
 
