@@ -43,26 +43,26 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  background-image: linear-gradient(45deg, #F2994A, #F2C94C);
+  height: 1550px;
 }
 
 .edit-container {
-  margin-top: 500px;
   display: flex;
   justify-content: center;
+  align-items: center;
   // background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD);
-  background-image: linear-gradient(45deg, #F2994A, #F2C94C);
+  // background-image: linear-gradient(45deg, #F2994A, #F2C94C);
   // background-image: linear-gradient(45deg, #F09819, #EDDE5D);
   // background-image: linear-gradient(45deg, #00c6ff, #0072ff);
-  width: 100vw;
+  width: 968px;
   height: 1550px;
-  border: solid 1px #F2994A;
 }
 
 .edit-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -79,6 +79,16 @@
   margin: 10px 0px;
 }
 
+.field.avatar {
+  margin-left: 75px;
+}
+
+.field.confirm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+}
+
 .actions.update {
   margin-top: 20px;
   display: flex;
@@ -87,6 +97,10 @@
 }
 
 .delete-button {
+  margin-top: 20px;
+}
+
+.actions {
   margin-top: 20px;
 }
 

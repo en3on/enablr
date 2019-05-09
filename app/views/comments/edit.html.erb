@@ -4,15 +4,17 @@
   </div>
 <% end %>
 
-<h1>Edit Comment</h1>
+<div class="edit-profile-container">
+  <h1>Edit Comment</h1>
 
-<%= form_for(:comment, url: project_comment_path, method: :patch) do |f| %>
-  <div class="field">
-    <%= f.text_area :content, value: @comment.content %>
-  </div>
+  <%= form_for(:comment, url: project_comment_path, method: :patch) do |f| %>
+    <div class="field">
+      <%= f.text_area :content, value: @comment.content %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit 'Update' %>
-  </div>
+    <div class="actions">
+      <%= f.submit 'Update' %>
+    </div>
 
-<% end %>
+  <% end %>
+</div>

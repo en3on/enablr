@@ -4,39 +4,41 @@
   </div>
 <% end %>
 
-<h1>Perk for <%= @project.name %></h1>
+<div class="edit-profile-container">
+  <h1>Perk for <%= @project.name %></h1>
 
-<h3><%= @perk.name %></h3>
+  <h3><%= @perk.name %></h3>
 
-<h5>Minimum Amount: <%= @perk.minimum_amount %></h5>
+  <h5>Minimum Amount: <%= @perk.minimum_amount %></h5>
 
-<p>Rewards: <%= @perk.rewards %></p>
+  <p>Rewards: <%= @perk.rewards %></p>
 
-<% if @perk.amount_left > 0 || @perk.unlimited %>
-  <% unless @perk.unlimited %>
-    <p>Amount Left: <%= @perk.amount_left %></p>
-  <% end %>
-<% end %>
-
-<% if ProjectEnablr.already_enabled?(@project.id, current_user.id) %>
-  <h3>You have already enabled this project!</h3>
-<% else %>
-
-  <% if !@perk.amount_left.zero? %>
-    <%= form_for(:charge, url: perk_charge_path(perk_id: @perk.id)) do |f| %> 
-      <div class="field">
-        <%= f.label :amount, "Pledge amount: " %>
-        <%= f.number_field :amount, min: @perk.minimum_amount, step: 1 %>
-      </div>
-
-      <%= f.hidden_field :user_id, value: current_user.id %>
-
-      <div class="actions">
-        <%= f.submit 'Enable!' %>
-      </div>
+  <% if @perk.amount_left > 0 || @perk.unlimited %>
+    <% unless @perk.unlimited %>
+      <p>Amount Left: <%= @perk.amount_left %></p>
     <% end %>
-  <% else %>
-    <h3>Sold Out!</h3>
   <% end %>
 
-<% end %>
+  <% if ProjectEnablr.already_enabled?(@project.id, current_user.id) %>
+    <h3>You have already enabled this project!</h3>
+  <% else %>
+
+    <% if !@perk.amount_left.zero? %>
+      <%= form_for(:charge, url: perk_charge_path(perk_id: @perk.id)) do |f| %> 
+        <div class="field">
+          <%= f.label :amount, "Pledge amount: " %>
+          <%= f.number_field :amount, min: @perk.minimum_amount, step: 1 %>
+        </div>
+
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <div class="actions">
+          <%= f.submit 'Enable!' %>
+        </div>
+      <% end %>
+    <% else %>
+      <h3>Sold Out!</h3>
+    <% end %>
+
+  <% end %>
+</div>

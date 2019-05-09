@@ -1,10 +1,6 @@
-.current-user {
-  margin: 5px 5px;
-}
-
 .navbar-image-avatar {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   img {
     height: 50px;
@@ -12,10 +8,7 @@
     border-radius: 50%;
   }
 }
-.btn {
-  margin-top: 5px;
-}
 
-// .enablr {
-//   float: left !important;
-// }
+.nav-item {
+  margin-right: 10px;
+}
