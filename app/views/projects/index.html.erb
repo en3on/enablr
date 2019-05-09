@@ -19,6 +19,7 @@
         <div class="project-category">
           <div><%= project.category %></div>
           <div><%= project.country %></div>
+          <%= progress_bar_for(project) %>
         </div>
         <div class="project-amount">
           <div>Current: $<%= project.current_amount %></div>
