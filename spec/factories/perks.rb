@@ -23,5 +23,7 @@ FactoryBot.define do
     enablr_amount { rand(0..10) }
     amount_left { rand(0..100) }
     rewards { Faker::Lorem.paragraph }
+    estimated_delivery { Faker::Date.forward(1000) }
+    not_deliverable { Faker::Boolean.boolean }
   end
 end

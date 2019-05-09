@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_001206) do
+ActiveRecord::Schema.define(version: 2019_05_09_023420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_05_08_001206) do
     t.integer "amount_left"
     t.string "name"
     t.string "rewards"
+    t.datetime "estimated_delivery"
+    t.boolean "not_deliverable"
     t.index ["project_id"], name: "index_perks_on_project_id"
   end
 

@@ -43,7 +43,12 @@ class Project < ApplicationRecord
     save
   end
 
+  def delete_photo(photo)
+    photo.errors.add('Photo could not be deleted! Please try again') unless photo.destroy
+  end
+
   private
+
   def set_initial_values
     self.current_amount = 0
     self.backer_amount = 0
