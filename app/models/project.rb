@@ -47,7 +47,16 @@ class Project < ApplicationRecord
     photo.errors.add('Photo could not be deleted! Please try again') unless photo.destroy
   end
 
+  def self.end(projects)
+    projects.each do |project|
+      project.destroy
+
+      puts "Ended project: #{project.name}"
+    end
+  end
+
   private
+
   def set_initial_values
     self.current_amount = 0
     self.backer_amount = 0
