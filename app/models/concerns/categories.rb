@@ -42,6 +42,12 @@ module Categories
     end
   end
 
+  def self.valid_categories
+    invalid = [@software_categories.first, @hardware_categories.first]
+
+    (@software_categories + @hardware_categories) - invalid
+  end
+
   def self.hardware?(category)
     @hardware_categories.include?(category)
   end
