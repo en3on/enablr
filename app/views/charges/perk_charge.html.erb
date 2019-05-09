@@ -1,7 +1,9 @@
-<h1>Confirm pledge for <%= @project.name %></h1>
+<div class="edit-profile-container">
+  <h1>Confirm pledge for <%= @project.name %></h1>
 
-<p><%= @perk.name %></p>
+  <p><%= @perk.name %></p>
 
-<p>Pledged Amount: $<%= @amount %></p>
+  <p>Pledged Amount: $<%= @amount %></p>
 
-<%= render 'layouts/shared/stripe_form' %>
+  <%= render 'layouts/shared/stripe_form' %>
+</div>
