@@ -21,7 +21,7 @@ module CarouselHelper
       content = view.safe_join([indicators, slides, controls])
       options = {
         id: "carousel-#{@project.id}",
-        class: 'carousel slide',
+        class: 'carousel slide carousel-size',
         data: { ride: false }
       }
 
@@ -33,7 +33,7 @@ module CarouselHelper
       options = {
         class: 'carousel-indicators'
       }
-      
+
       content_tag(:ol, safe_join(items), options)
     end
 

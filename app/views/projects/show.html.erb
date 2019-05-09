@@ -40,6 +40,7 @@
         <div>Location: <%= "#{@project.city}, #{@project.country}" %></div>
         <div>Current Amount: $<%= @project.current_amount %></div>
         <div>Target Amount: $<%= @project.target_amount %></div>
+        <%= progress_bar_for(@project) %>
       </div>
       <div class="project-date">Due: <%= @project.target_date.strftime("%d/%m/%Y") %></div>
       <div class="enablers">Enablers <%= @project.backer_amount %></div>

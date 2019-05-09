@@ -28,7 +28,7 @@
     <%= f.label :target_date %><br>
     <%= f.date_field :target_date, min: Date.today %>
   </div>
-  <div class="field">
+  <div class="field category">
     <%= f.label :category %><br>
     <%= f.select :category, Categories.categories,
      disabled: ['-- Software --', '-- Hardware --'] %>
