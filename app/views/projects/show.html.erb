@@ -16,7 +16,11 @@
 
   <div class="project-show-information-container">
       <div class="project-show-information">
-      <div class="project-name"><%= @project.name %></div>
+      <div class="project-name">
+        <% @project_owner = User.find(@project.user_id) %>
+        <div><%= @project.name %></div>
+        <div>By: <%= "#{@project_owner.first_name} #{@project_owner.last_name}" %></div>
+      </div>
       <div class="project-group">
         <div><%= @project.hardware ? 'Hardware' : 'Software' %></div>
         <div>Category: <%= @project.category %></div>
