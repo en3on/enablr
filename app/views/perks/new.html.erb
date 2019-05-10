@@ -1,10 +1,4 @@
 <div class="edit-profile-container">
-  <% if flash[:error] %>
-    <div class="alert alert-danger" role="alert">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
   <h1>Create New Perk for <%= @project.name %></h1>
 
   <%= form_for(:perk, url: project_perks_path) do |f| %>
