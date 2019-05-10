@@ -52,7 +52,7 @@
         <div class="user-card-due">Due: <%= @enabled_project.target_date.strftime("%d/%m/%Y") %></div>
         <div class="user-card-current">
           <div><%= @enabled_project.category %></div>
-          <div>Enabled: $<%= enabled.pledged_amount %></div>
+          <div>Pledged: $<%= enabled.pledged_amount %></div>
           <div>Current: $<%= @enabled_project.current_amount %></div>
           <div>Target: $<%= @enabled_project.target_amount %></div>
         </div>
