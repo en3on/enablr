@@ -1,11 +1,18 @@
 
-.footer {
-  height: 400px;
+.footer-container {
+  height: 300px;
   background-color: #343a40;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
+  .navbar-brand.mb-0.h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    color: white;
+  }
 }
 
 .rights {
@@ -15,13 +22,52 @@
   align-items: center;
   color: white;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 41px;
 }
 
 hr {
-  margin-bottom: 20px;
   width: 100%;
   grid-row: 7/8;
   grid-column: 1/8;
   background-color: white;
+}
+
+.btn.footer {
+  color: white;
+}
+
+.explore {
+  display: flex;
+  align-items: center;
+  grid-row: 3/4;
+  grid-column: 5/6;
+}
+
+.sign-up {
+  display: flex;
+  align-items: center;
+  grid-row: 3/4;
+  grid-column: 4/5;
+}
+
+.log-in {
+  display: flex;
+  align-items: flex-end;
+  grid-row: 4/5;
+  grid-column: 4/5;
+}
+
+.about {
+  display: flex;
+  align-items: flex-end;
+  grid-row: 5/6;
+  grid-column: 4/5;
+}
+
+.support {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 3/4;
+  grid-column: 6/7;
 }
