@@ -17,7 +17,7 @@ class ProjectEnablrsController < ApplicationController
         perk.decrement :amount_left, 1
         perk.save
 
-        redirect_to project
+        redirect_to project, flash: { success: 'Project successfully enabled!' }
       else
         redirect_to project, flash: { error: enablr.errors.full_messages.to_sentence }
       end
@@ -41,7 +41,8 @@ class ProjectEnablrsController < ApplicationController
         redirect_to user_profile_path(@user.id), flash: { success: 'Successfully refunded project pledge' }
 
       else
-        # errors!
+        flash[:error] = @enablr.errors.full_messages.to_sentence
+
         render 'refund'
       end
     else
@@ -50,34 +51,6 @@ class ProjectEnablrsController < ApplicationController
       render 'refund'
     end
 
-  end
-
-  def edit
-    @enablr = ProjectEnablr.find(params[:id])
-  end
-
-  def update
-    @enablr = ProjectEnablr.find(params[:id])
-
-    project = Project.find(@enablr.project_id)
-    amount = params[:project_enablr][:pledged_amount].to_f
-
-    pledge_change = amount - @enablr.pledged_amount
-
-    if @enablr.update(pledged_amount: amount)
-      if pledge_change.negative?
-        project.decrement :current_amount, pledge_change.abs
-      else
-        project.increment :current_amount, pledge_change
-      end
-
-      project.save
-      redirect_to user_profile_path(current_user.id)
-    else
-      flash[:error] = @enablr.errors.full_messages.to_sentence
-
-      render 'edit'
-    end
   end
 
   def refund

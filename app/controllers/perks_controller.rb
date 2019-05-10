@@ -34,7 +34,7 @@ class PerksController < ApplicationController
     @perk = @project.perks.new(perk_params(params))
 
     if @perk.save
-      redirect_to @project
+      redirect_to @project, flash: { success: 'Perk created successfully!' }
     else
       flash[:error] = @perk.errors.full_messages.to_sentence
 
@@ -50,7 +50,7 @@ class PerksController < ApplicationController
     @perk = Perk.find(params[:id])
 
     if @perk.update(perk_params(params))
-      redirect_to project_path(@perk.project_id)
+      redirect_to project_path(@perk.project_id), flash: { success: 'Perk updated successfully!' }
     else
       flash[:error] = @perk.errors.full_messages.to_sentence
 
@@ -62,9 +62,11 @@ class PerksController < ApplicationController
     project = Project.find(params[:project_id])
     perk = Perk.find(params[:id])
 
-    project.perks.destroy(perk)
-
-    redirect_to project
+    if project.perks.destroy(perk)
+      redirect_to project, flash: { success: 'Perk deleted successfully!' }
+    else
+      redirect_to project, flash: { error: perk.errors.full_messages.to_sentence }
+    end
   end
 
   private
