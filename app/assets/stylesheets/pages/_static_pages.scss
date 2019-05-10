@@ -25,16 +25,20 @@
 }
 
 .first-section {
-  height: 400px;
-  // background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-image: url(asset_path("parallax.jpg"));
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .middle-section {
-  height: 300px;
-  // background-color: white;
+  height: 400px;
 }
 
 .end-section {
   height: 400px;
-  // background-color: black;
+  background-color: aliceblue;
 }

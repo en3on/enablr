@@ -178,6 +178,7 @@
       background-color: white;
       .project-name {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         grid-row: 2/3;
@@ -384,6 +385,10 @@
 }
 
 .alert.alert-warning {
+  margin-bottom: 0px;
+}
+
+.alert.alert-success {
   margin-bottom: 0px;
 }
 
