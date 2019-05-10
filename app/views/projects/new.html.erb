@@ -21,11 +21,11 @@
     <%= f.file_field :picture, multiple: true %>
   </div>
   <div class="field">
-    <%= f.label :target_amount %><br>
+    <%= f.label :target_amount, "Target Amount" %><br>
     <%= f.number_field :target_amount, min: 1, step: 1 %>
   </div>
   <div class="field">
-    <%= f.label :target_date %><br>
+    <%= f.label :target_date, "Target Date" %><br>
     <%= f.date_field :target_date, min: Date.today %>
   </div>
   <div class="field category">

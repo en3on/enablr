@@ -28,7 +28,9 @@
   </div>
 
   <div class="project-show-image-container">
-    <%= carousel_for(@project, @project.is_owner?(current_user)) %>
+    <div class="project-image-show">
+      <%= carousel_for(@project, @project.is_owner?(current_user)) %>
+    </div>
   </div>
 
   <div class="project-show-information-container">
@@ -43,7 +45,7 @@
         <%= progress_bar_for(@project) %>
       </div>
       <div class="project-date">Due: <%= @project.target_date.strftime("%d/%m/%Y") %></div>
-      <div class="enablers">Enablers <%= @project.backer_amount %></div>
+      <div class="enablers"><%= @project.backer_amount %> Enablrs</div>
       <div class="project-buttons">          
         <%= link_to edit_project_path, class: "btn btn-default" do %>
             <i class="fas fa-edit"></i>
@@ -71,12 +73,12 @@
         <div class="perks-box">
           <div class="name-box">
             <div><%= perk.name %></div>
-            <div>Pledge $<%= perk.minimum_amount %> or More</div>
+            <div>Minimum Pledge $<%= perk.minimum_amount %></div>
           </div>
-          <div class="perks-enablers"><%= perk.enablr_amount %> Enablers</div>
+          <div class="perks-enablers"><%= perk.enablr_amount %> Enablrs</div>
           <div class="perks-left"><%= perk.amount_left.negative? ? 'Unlimited' : "#{perk.amount_left} left" %></div>
           <div class="perk-rewards">
-            <div><p>Rewards:</p></div>            
+            <div><p>Rewards</p></div>            
             <%= perk.rewards %>
           </div>
           <div class="user-comment-buttons">

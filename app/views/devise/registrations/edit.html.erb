@@ -71,11 +71,13 @@
       <% end %>
       
 
-      <h3 class="delete-button">Delete account</h3>
+      <h3 class="delete-button">Delete Account</h3>
 
-      <p>Unhappy? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p>Unhappy? <%= button_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "btn btn-danger", method: :delete %></p>
 
-      <%= link_to "Back", :back %>
+      <%= link_to(:back) do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
     </div>
   </div>
 </div>

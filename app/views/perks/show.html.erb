@@ -9,12 +9,12 @@
 
   <h3><%= @perk.name %></h3>
 
-  <h5>Minimum Amount: <%= @perk.minimum_amount %></h5>
+  <h5>Minimum Amount: $<%= @perk.minimum_amount %></h5>
 
   <p>Rewards: <%= @perk.rewards %></p>
 
   <% unless @perk.not_deliverable %>
-    <p>Est. Delivery Date: <%= @perk.estimated_delivery.strftime("%e %b %Y") %></p>
+    <p>Est. Delivery Date: <%= @perk.estimated_delivery %></p>
   <% end %>
 
   <% if @perk.amount_left > 0 || @perk.unlimited %>
