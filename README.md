@@ -161,15 +161,32 @@ Belongs to Enablr
 
 17.  Describe the way tasks are allocated and tracked in your project.
 
-18.  Discuss how Agile methodology is being implemented in your project.
+The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be even more specific and efficient. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on. When out of class we also communicated via Slack in case there was any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
 
-19.  Provide an overview and description of your Source control process.
+18.    Discuss how Agile methodology is being implemented in your project.
 
-20.  Provide an overview and description of your Testing process.
+Discuss how Agile methodology is being implemented in your project.
 
-21.  Discuss and analyse requirements related to information system security.
+We used the following Agile Methodologies:
 
-22. Discuss methods you will use to protect information and data.
+    Scrum: We had daily standups to discuss what was done the day prior, the task that we were working on for the day and if there were any blockers hindering our progress. This helped us reflect on what had been done and what to focus on next.
+    User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
+    Workflows: Tasks were broken down into To Do, In Progree and Completed workflows.
+    Kanban: Tasks broken down into workflows and features were visualised in cards and columns using Trello.
+    Paired Programming: Working in pairs during the first week of the project, we would work on one computer. This allowed us to pick up on errors and learn from each other.
 
-23. Research what your legal obligations are in relation to handling user data.
+
+1.    Provide an overview and description of your Source control process.
+
+2.    Provide an overview and description of your Testing process.
+
+3.    Discuss and analyse requirements related to information system security.
+
+4.   Discuss methods you will use to protect information and data.
+
+
+
+5.   Research what your legal obligations are in relation to handling user data.
+
+
 
