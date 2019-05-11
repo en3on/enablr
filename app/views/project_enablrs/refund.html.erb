@@ -1,7 +1,9 @@
-<h1>Request refund for <%= @perk.name %> for <%= @project.name %></h1>
+<div class="edit-profile-container">
+  <h1>Request refund for <%= @perk.name %> for <%= @project.name %></h1>
 
-<p>Refunding will reduce <%= @project.name %>'s progress from <strong><%= @project.percentage.round(2) %>%</strong> to <strong><%= (@project.percentage - @enablr.percentage_of_project).round(2) %>%</strong></p>
+  <p>Refunding will reduce <%= @project.name %>'s progress from <strong><%= @project.percentage.round(2) %>%</strong> to <strong><%= (@project.percentage - @enablr.percentage_of_project).round(2) %>%</strong></p>
 
-<%= link_to delete_project_enablr_path(@project.id), method: :delete do %>
-  <button type='button', class='btn btn-danger'>Refund</button>
-<% end %>
+  <%= link_to delete_project_enablr_path(@project.id), method: :delete do %>
+    <button type='button', class='btn btn-danger'>Refund</button>
+  <% end %>
+</div>

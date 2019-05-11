@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <div class="user-projects-container">
-    <div class="my-projects-title"><h1>MY PROJECTS</h1></div>
+    <div class="my-projects-title"><h2>My Projects</h2></div>
     <div class="user-projects">  
       <% @projects.each do |project| %>
         <div class="user-projects-profile-card">
@@ -41,7 +41,7 @@
   </div>
   <div class="user-projects-enabled-container">
     <div class="enabled-projects-title">
-      <h1>ENABLED</h1>
+      <h2>Projects Enabled</h2>
     </div>
     <div class="user-projects-enabled"> 
       <% @user.project_enablrs.each do |enabled| %>
@@ -61,7 +61,7 @@
             <i class="fas fa-eye"></i> 
           <% end %>
           <% if can? :destroy, enabled %>
-            <%= link_to project_enablr_refund_path(@enabled_project.id, @user.id) , class: 'btn btn-default' do %>
+            <%= link_to project_enablr_refund_path(@enabled_project.id, @user.id) , class: 'btn btn-default', data: {confirm: "Are you sure?"} do %>
               <i class="fas fa-ban"></i>
             <% end %>
           <% end %>
