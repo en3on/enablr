@@ -36,7 +36,7 @@
             <i class="fas fa-edit"></i>
         <% end %>
         <% if can? :destroy, @project %>
-          <%= link_to project_path, class: "btn btn-default", method: :delete do %>
+          <%= link_to project_path, class: "btn btn-default", method: :delete, data: {confirm: "Are you sure?"} do %>
             <i class="fas fa-trash"></i>
           <% end %>
         <% end %>
@@ -63,7 +63,7 @@
           <div class="perks-enablers"><%= perk.enablr_amount %> Enablrs</div>
           <div class="perks-left"><%= perk.amount_left.negative? ? 'Unlimited' : "#{perk.amount_left} left" %></div>
           <div class="perk-rewards">
-            <div><p>Rewards</p></div>            
+            <div><p class="rewards">Rewards</p></div>            
             <%= perk.rewards %>
           </div>
           <div class="user-comment-buttons">
@@ -76,7 +76,7 @@
               <% end %>
             <% end %>
             <% if can? :destroy, perk %>
-              <%= link_to project_perk_path(project_id: @project.id, id: perk.id), class: "btn btn-default", method: :delete do %>
+              <%= link_to project_perk_path(project_id: @project.id, id: perk.id), class: "btn btn-default", method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash"></i>
               <% end %> 
             <% end %>

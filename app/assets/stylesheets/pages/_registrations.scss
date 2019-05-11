@@ -5,6 +5,8 @@
   align-items: center;
   flex-direction: column;
   height: 800px;
+  background-image: url(asset_path("parallax.jpg"));
+  background-size: cover;
 }
 
 .signup-container {
