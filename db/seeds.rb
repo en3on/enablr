@@ -47,6 +47,7 @@ puts 'Creating projects with perks...'
     comment = enablr.comments.new
     comment.content = Faker::Quote.yoda
     comment.project_id = @project.id
+    comment.created_at = Faker::Time.backward(1000)
 
     comment.save
   end
