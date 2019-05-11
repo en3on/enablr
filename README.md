@@ -1,25 +1,89 @@
-# README
+# Enablr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Heroku](https://enablr.herokuapp.com/)<br>
+[GitHub](https://github.com/en3on/enablr)
 
-Things you may want to cover:
+Enablr was created to allow for an easy way to get your startup funded by the public, in exchange for different 'Perks' that they can receive. Users can sign up as either a standard user or a fundraiser. **Fundraisers** can both create and enable projects, whereas **standard** users can only enable.
 
-* Ruby version
+![Logo](docs/logo.png)
 
-* System dependencies
+#### Features
+We offer the following features to users of Enablr:
 
-* Configuration
+* **Sign up** for a free account as either a **Standard** user or a **Fundraiser
+* ****Create projects** as a fundraiser
+* **Enable** other's projects by pledging a chosen amount to a specific **perk**
+* **Comment** on any project that they have enabled
+* **Upload multiple pictures** for their project
+* **Edit / Delete** their own: 
+    * Comments
+    * Projects
+    * Perks
+    * Profile
+    * Pictures
+* **Request a refund** for their pledge, provided that the purchase was made _less than 30 days ago_
 
-* Database creation
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Database initialization
+### Prerequisites
+In order to run this app, the following software is needed
 
-* How to run the test suite
+[PostgreSQL](https://postgresql.org/download) is needed for the database<br>
+[Ruby](https://www.ruby-lang.org/) is needed in order to compile the app<br>
+Rails is used as the framework, and needs to be installed as a gem<br>
+```
+gem install rails
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment
+To run this app on your system, first create the database by running the following command: 
 
-* Deployment instructions
+```
+rails db:create
+```
+
+Migrate the changes to the database:
+
+```
+rails db:migrate
+```
+
+Optionally, seed the database with the provided seed file:
+
+```
+rails db:seed
+```
+
+To start up the server, run the following command:
+```
+rails server
+```
+
+And then navigate to ```http://localhost:3000```
+
+## Build With
+Enablr was created using the following technology:
+
+* Ruby _2.5.1_ - _Language_
+* Rails _5.2.3_ - _Web Framework_
+* HTML _5_ - _Language_
+* CSS _3_ - _Language_
+* PostgreSQL - _Database_
+* SASSC - _Language_
+* CoffeeScript - _Language_
+* Bootstrap - _Gem_
+* Jquery - _Language_
+* CanCanCan - _Authorization Gem_
+* Devise - _Authentication Gem_
+* FactoryBot - _Gem for easily creating instances of models for testing/ seeding_
+* Faker - _Gem for randomly generating data_
+* Amazon Web Services - _Storage services_
+* Heroku - _App Deployment_
+
+## Authors
+* Adam Ladell
+* Ryan Rico
 
 ## Requirements - Short Answer Questions
 
