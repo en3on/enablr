@@ -1,9 +1,13 @@
+require_relative 'project_names.rb'
+
 puts 'Start of seeding'
 
 puts 'Creating projects with perks...'
 
-10.times do
-  project = FactoryBot.create(:random)
+10.times.each do |i|
+  project = FactoryBot.build(:random)
+  project.name = @names[i]
+  project.save
 
   rand(1..5).times do
     num = rand(1..18)
