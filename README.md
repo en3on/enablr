@@ -161,32 +161,36 @@ Belongs to Enablr
 
 17.  Describe the way tasks are allocated and tracked in your project.
 
-The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be even more specific and efficient. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on. When out of class we also communicated via Slack in case there was any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
+The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be efficient and more specific. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on at the time. When outside of class, we also communicated via Slack in case there were any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
 
-18.    Discuss how Agile methodology is being implemented in your project.
-
-Discuss how Agile methodology is being implemented in your project.
+18. Discuss how Agile methodology is being implemented in your project.
 
 We used the following Agile Methodologies:
 
-    Scrum: We had daily standups to discuss what was done the day prior, the task that we were working on for the day and if there were any blockers hindering our progress. This helped us reflect on what had been done and what to focus on next.
-    User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
-    Workflows: Tasks were broken down into To Do, In Progree and Completed workflows.
-    Kanban: Tasks broken down into workflows and features were visualised in cards and columns using Trello.
-    Paired Programming: Working in pairs during the first week of the project, we would work on one computer. This allowed us to pick up on errors and learn from each other.
+Pair Programming: During the project, we would sometimes work on one computer. This made it easier for us to pick up on any errors, be more efficient and learn from one another.
 
+Scrum: We had daily standups to discuss what was done the day prior, the tasks that we were working on for the day and if there were any blockers hindering our progress. This helped us reflect on what had been done and what to focus on next.
 
-1.    Provide an overview and description of your Source control process.
+Workflows: Tasks were broken down into To Do, In Progress and Completed workflows.
 
-2.    Provide an overview and description of your Testing process.
+Kanban: Tasks broken down into workflows and features were visualised in cards and columns using Trello.
 
-3.    Discuss and analyse requirements related to information system security.
+User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
+   
+19.  Provide an overview and description of your Source control process.
 
-4.   Discuss methods you will use to protect information and data.
+20. Provide an overview and description of your Testing process.
 
+21. Discuss and analyse requirements related to information system security.
 
+22. Discuss methods you will use to protect information and data.
 
-5.   Research what your legal obligations are in relation to handling user data.
+There are a number of ways we protect our users information and data. The methods we implement to do this are by encrypting the passwords of our users, keeping email addresses private, offering customers a 30 day refund guarantee and using HTTPS for credit card processing. We also used validations such as requiring a 1 lower case letter, 1 upper case letter and 2 numbers to make passwords more secure. 
+
+The following gems used also assisted in protecting information and data. Devise provides authentication for hashing and storing user data and adding user registration, log-in and log-out features to our application. Stripe payments are processed through Stripe (which has the high grade payment processing security) so that financial data is not stored.  Cancancan provides a set of helpers for authorisation to manage user permissions and application policies.
+
+23. Research what your legal obligations are in relation to handling user data.
+
 
 
 
