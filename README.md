@@ -1,25 +1,59 @@
-# README
+# Enablr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Heroku](https://enablr.herokuapp.com/)<br>
+[GitHub](https://github.com/en3on/enablr)
 
-Things you may want to cover:
+Enablr was created to allow for an easy way to get your startup funded by the public, in exchange for different 'Perks' that they can receive. Users can sign up as either a standard user or a fundraiser. **Fundraisers** can both create and enable projects, whereas **standard** users can only enable.
 
-* Ruby version
+#### Features
+We offer the following features to users of Enablr:
 
-* System dependencies
+* **Sign up** for a free account as either a **Standard** user or a **Fundraiser
+* ****Create projects** as a fundraiser
+* **Enable** other's projects by pledging a chosen amount to a specific **perk**
+* **Comment** on any project that they have enabled
+* **Upload multiple pictures** for their project
+* **Edit / Delete** their own: 
+    * Comments
+    * Projects
+    * Perks
+    * Profile
+    * Pictures
+* **Request a refund** for their pledge, provided that the purchase was made _less than 30 days ago_
 
-* Configuration
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Database creation
+### Prerequisites
+In order to run this app, the following software is needed
 
-* Database initialization
+[PostgreSQL](https://postgresql.org/download) is needed for the database<br>
+[Ruby](https://www.ruby-lang.org/) is needed in order to compile the app<br>
+Rails is used as the framework, and needs to be installed as a gem<br>
+```
+gem install rails
+```
 
-* How to run the test suite
+### Tech Stack
+Enablr was created using the following technology:
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby _2.5.1_
+* Rails _5.2.3_
+* HTML _5_
+* CSS _3_
+* PostgreSQL
+* SASSC
+* CoffeeScript
+* Bootstrap
+* Jquery
+* CanCanCan
+* Devise
+* FactoryBot
+* Faker
+* Amazon Web Services
+* Heroku
 
-* Deployment instructions
+
 
 ## Requirements - Short Answer Questions
 
