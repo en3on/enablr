@@ -5,6 +5,8 @@
 
 Enablr was created to allow for an easy way to get your startup funded by the public, in exchange for different 'Perks' that they can receive. Users can sign up as either a standard user or a fundraiser. **Fundraisers** can both create and enable projects, whereas **standard** users can only enable.
 
+![Logo](docs/logo.png)
+
 #### Features
 We offer the following features to users of Enablr:
 
@@ -34,26 +36,54 @@ Rails is used as the framework, and needs to be installed as a gem<br>
 gem install rails
 ```
 
-### Tech Stack
+## Deployment
+To run this app on your system, first create the database by running the following command: 
+
+```
+rails db:create
+```
+
+Migrate the changes to the database:
+
+```
+rails db:migrate
+```
+
+Optionally, seed the database with the provided seed file:
+
+```
+rails db:seed
+```
+
+To start up the server, run the following command:
+```
+rails server
+```
+
+And then navigate to ```http://localhost:3000```
+
+## Build With
 Enablr was created using the following technology:
 
-* Ruby _2.5.1_
-* Rails _5.2.3_
-* HTML _5_
-* CSS _3_
-* PostgreSQL
-* SASSC
-* CoffeeScript
-* Bootstrap
-* Jquery
-* CanCanCan
-* Devise
-* FactoryBot
-* Faker
-* Amazon Web Services
-* Heroku
+* Ruby _2.5.1_ - _Language_
+* Rails _5.2.3_ - _Web Framework_
+* HTML _5_ - _Language_
+* CSS _3_ - _Language_
+* PostgreSQL - _Database_
+* SASSC - _Language_
+* CoffeeScript - _Language_
+* Bootstrap - _Gem_
+* Jquery - _Language_
+* CanCanCan - _Authorization Gem_
+* Devise - _Authentication Gem_
+* FactoryBot - _Gem for easily creating instances of models for testing/ seeding_
+* Faker - _Gem for randomly generating data_
+* Amazon Web Services - _Storage services_
+* Heroku - _App Deployment_
 
-
+## Authors
+* Adam Ladell
+* Ryan Rico
 
 ## Requirements - Short Answer Questions
 
