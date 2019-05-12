@@ -335,7 +335,22 @@ Belongs to Enablr
 [Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1)
 17.  Describe the way tasks are allocated and tracked in your project.
 
+The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be more efficient and detailed. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on at the time. When outside of class, we also communicated via the communication app Slack in case there were any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
+
 18.  Discuss how Agile methodology is being implemented in your project.
+
+
+We used the following Agile Methodologies:
+
+Pair Programming: During the project, we would sometimes work on one computer. This made it easier for us to pick up on any errors, be more efficient and learn from one another.
+
+Scrum: We had daily standups to discuss what was done the day prior, the tasks that we were working on for the day and if there were any blockers hindering our progress. This helped us reflect on what had been done and what to focus on next.
+
+Workflows: Tasks were broken down into To Do, In Progress and Completed workflows.
+
+Kanban: Tasks broken down into workflows and features were visualised in cards and columns using Trello.
+
+User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
 
 19.  Provide an overview and description of your Source control process.<br>
 
@@ -344,7 +359,7 @@ When we had a new feature to work on, or a feature to patch, we would create a n
 We would commit as soon as some small part of our feature worked and would push regularly.
 Upon completion of the feature, a pull-request would be created and the other member would approve the request and merge it to master.
 
-20.  Provide an overview and description of your Testing process.
+20. Provide an overview and description of your Testing process.
 
 For testing, we employed a TDD work flow using RSpec, FactoryBot and Capybara.
 Failing tests were created before we implemented the function, to give us an idea of what we had to do next for our project.
@@ -360,5 +375,27 @@ Parameters that are sensitive, were passed using hidden fields in forms, in orde
 
 22. Discuss methods you will use to protect information and data.
 
-23. Research what your legal obligations are in relation to handling user data.
+There are a number of ways we protect our users information and data. The methods we implement to do this are by encrypting the passwords of our users, keeping email addresses private, offering customers a 30 day refund guarantee and using HTTPS for credit card processing. We also used validations such as requiring a 1 lower case letter, 1 upper case letter and 2 numbers to make passwords more secure. 
+
+The following gems used also assisted in protecting information and data. Devise provides authentication for hashing and storing user data. It also adds user registration, log-in and log-out features to our website. Stripe processes payments so that financial data is not stored. Finally Cancancan provides a set of helpers for authorisation to manage user permissions and application policies.
+
+23.  Research what your legal obligations are in relation to handling user data.
+
+The Privacy Act 1988 is an Australian law which regulates the management, storing, access and correction of personal information about individuals. The privacy Act has thirteen principles that businesses covered by the Privacy Act need to follow.
+
+Our legal obligations in relation to handling user data and in accordance with the privacy laws is that we have the responsibility to protect personal information from:
+
+* Theft
+* Misuse
+* Interference
+* Loss
+* Unauthorised access
+* Modification
+* Disclosure
+
+And to take reasonable steps to destroy personal information when it is no longer needed for any purpose under the Privacy Act 1988. Only businesses with an annual turnover of $3 million or more must comply with the Privacy Act 1988. Businesses with an annual turnover of less than $3 million may have responsibilities under the Privacy Act if they are a certain type of business.
+
+From February 2018 there is also a Notifiable Data Breaches scheme that companies need to comply with under the Act if a data breach involves personal information and can cause harm to an individual. The individual and Office of Australian Information Commissioner are to be notified if this happens.
+
+
 
