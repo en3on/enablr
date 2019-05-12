@@ -92,6 +92,34 @@ Enablr was created using the following technology:
 * Adam Ladell
 * Ryan Rico
 
+## Design process
+
+Our design process for our Rails application started with us researching competitors of our website (eg. Kickstarter) and getting inspiration from their layouts and design. We also looked at UX/UI designs on dribble and other websites for inspiration and insight of current trends that would make our application look more modern. We then drew our wireframes in Figma and had a look at bootstrap components that we could integrate with the design.
+
+### User stories
+https://trello.com/b/l7lYZTR0/enablr-app-user-stories
+<img src=./docs/user-stories.png>
+
+### A workflow diagram of the user journey/s.
+<img src=./docs/workflow-user-journey.png>
+
+### Wireframes
+https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1
+<img src=./docs/wireframes.png>
+
+### Moodboard
+https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=11%3A0
+<img src=./docs/moodboard.png>
+
+### Database Entity Relationship Diagrams
+<img src=./docs/database-entity-relationship-diagram.png>
+
+### Trello Screenshots
+<img src=./docs/trello1.png>
+<img src=./docs/trello2.png>
+<img src=./docs/trello4.png>
+<img src=./docs/trello9.png>
+
 ## Requirements - Short Answer Questions
 
 1. What is the need (i.e. challenge) that you will be addressing in your project?
@@ -330,14 +358,14 @@ Belongs to Enablr
 ```
 
 15.  Provide User stories for your App.<br>
-[User Stories](https://app.cardboardit.com/maps/guests/d014540bd3a65f92d4456912a2a6c1f690785c0aa2a4fa050d1b4a185eb595c2)
+[User Stories](https://trello.com/b/l7lYZTR0/enablr-app-user-stories)
 16.  Provide Wireframes for your App.<br>
 [Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1)
 17.  Describe the way tasks are allocated and tracked in your project.
 
 The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be more efficient and detailed. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on at the time. When outside of class, we also communicated via the communication app Slack in case there were any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
 
-18.  Discuss how Agile methodology is being implemented in your project.
+18.   Discuss how Agile methodology is being implemented in your project.
 
 
 We used the following Agile Methodologies:
