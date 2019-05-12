@@ -98,27 +98,27 @@ Our design process for our Rails application started with us researching competi
 
 ### User stories
 [User Stories](https://trello.com/b/l7lYZTR0/enablr-app-user-stories_)
-![user stories]("docs/user stories.png")
+![user stories](docs/user-stories.png)
 
 ### A workflow diagram of the user journey/s.
-![workflow user journey]("docs/workflow user journey.png")
+![workflow user journey](docs/workflow-user-journey.png)
 
 ### Wireframes
-[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node id=0%3A1)
-![wireframes]("docs/wireframes.png")
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?nodeid=0%3A1)
+![wireframes](docs/wireframes.png)
 
 ### Moodboard
-[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node id=11%3A0)
-![moodboard]("docs/moodboard.png")
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?nodeid=11%3A0)
+![moodboard](docs/moodboard.png)
 
 ### Database Entity Relationship Diagrams
-![database entity relationship diagram]("docs/database entity relationship diagram.png")
+![database entity relationship diagram](docs/database-entity-relationship-diagram.png)
 
 ### Trello Screenshots
-![trello1]("docs/trello1.png")
-![trello2]("docs/trello2.png")
-![trello4]("docs/trello4.png")
-![trello9]("docs/trello9.png")
+![trello1](docs/trello1.png)
+![trello2](docs/trello2.png)
+![trello4](docs/trello4.png)
+![trello9](docs/trello9.png)
 
 ## Requirements - Short Answer Questions
 
