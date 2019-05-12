@@ -101,14 +101,14 @@ Our design process for our Rails application started with us researching competi
 ![user stories](docs/user-stories.png)
 
 ### A workflow diagram of the user journey/s.
-![workflow user journey](docs/workflow-user-journey.png)
+![workflowuserjourney](docs/workflow-user-journey.png)
 
 ### Wireframes
-[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?nodeid=0%3A1)
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr)
 ![wireframes](docs/wireframes.png)
 
 ### Moodboard
-[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?nodeid=11%3A0)
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr)
 ![moodboard](docs/moodboard.png)
 
 ### Database Entity Relationship Diagrams
