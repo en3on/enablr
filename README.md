@@ -114,6 +114,31 @@ Our design process for our Rails application started with us researching competi
 ### Database Entity Relationship Diagrams
 ![database entity relationship diagram](docs/database-entity-relationship-diagram.png)
 
+### Project Plan & Timeline
+
+Week 1
+- Deciding Project Idea
+- Researching Design Inspirations
+- Completing Figma Wireframes & Moodboard
+- Setting up Trello Board
+- Setting Up Github
+- Deploying to Heroku
+- Getting Approval for Database ERD
+- Creating application foundations (Models, Views and Controllers)
+- Creating Tests
+- Adding CRUD
+- Finishing Methods
+
+Week 2
+- Adding Authorization, Verifications & Validations
+- Adding AWS integration & image uplaoding
+- Implementing Stripe
+- Adding Flash messages
+- Finalising Views and CSS
+- Debugging
+- Refactoring (Models, Views and Controllers)
+- README Short Answer Questions
+
 ### Trello Screenshots
 ![trello1](docs/trello1.png)
 ![trello2](docs/trello2.png)
