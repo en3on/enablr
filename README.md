@@ -25,23 +25,29 @@ Things you may want to cover:
 
 Our design process for our Rails application started with us researching competitors of our website (eg. Kickstarter) and getting inspiration from their layouts and design. We also looked at UX/UI designs on dribble and other websites for inspiration and insight of current trends that would make our application look more modern. We then drew our wireframes in Figma and had a look at bootstrap components that we could integrate with the design.
 
-## User stories
+### User stories
 https://trello.com/b/l7lYZTR0/enablr-app-user-stories
 <img src=./docs/user-stories.png>
 
-## A workflow diagram of the user journey/s.
+### A workflow diagram of the user journey/s.
 <img src=./docs/workflow-user-journey.png>
 
-## Wireframes
+### Wireframes
 https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1
 <img src=./docs/wireframes.png>
 
-## Moodboard
+### Moodboard
 https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=11%3A0
 <img src=./docs/moodboard.png>
 
-## Database Entity Relationship Diagrams
+### Database Entity Relationship Diagrams
 <img src=./docs/database-entity-relationship-diagram.png>
+
+### Trello Screenshots
+<img src=./docs/trello1.png>
+<img src=./docs/trello2.png>
+<img src=./docs/trello4.png>
+<img src=./docs/trello9.png>
 
 ## Requirements - Short Answer Questions
 
@@ -176,16 +182,19 @@ Belongs to Enablr
   Belongs to Enablr
 
 14.  Provide your database schema design.
+<img src=./docs/database-entity-relationship-diagram.png>
 
 15.  Provide User stories for your App.
+<img src=./docs/user-stories.png>
 
 16.  Provide Wireframes for your App.
+<img src=./docs/wireframes.png>
 
 17.  Describe the way tasks are allocated and tracked in your project.
 
 The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be more efficient and detailed. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on at the time. When outside of class, we also communicated via the communication app Slack in case there were any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
 
-18.  Discuss how Agile methodology is being implemented in your project.
+18.   Discuss how Agile methodology is being implemented in your project.
 
 We used the following Agile Methodologies:
 
@@ -199,7 +208,7 @@ Kanban: Tasks broken down into workflows and features were visualised in cards a
 
 User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
    
-19. Provide an overview and description of your Source control process.
+19.  Provide an overview and description of your Source control process.
 
 20. Provide an overview and description of your Testing process.
 
