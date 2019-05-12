@@ -21,6 +21,28 @@ Things you may want to cover:
 
 * Deployment instructions
 
+## Design process
+
+Our design process for our Rails application started with us researching competitors of our website (eg. Kickstarter) and getting inspiration from their layouts and design. We also looked at UX/UI designs on dribble and other websites for inspiration and insight of current trends that would make our application look more modern. We then drew our wireframes in Figma and had a look at bootstrap components that we could integrate with the design.
+
+## User stories
+https://trello.com/b/l7lYZTR0/enablr-app-user-stories
+<img src=./docs/user-stories.png>
+
+## A workflow diagram of the user journey/s.
+<img src=./docs/workflow-user-journey.png>
+
+## Wireframes
+https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1
+<img src=./docs/wireframes.png>
+
+## Moodboard
+https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=11%3A0
+<img src=./docs/moodboard.png>
+
+## Database Entity Relationship Diagrams
+<img src=./docs/database-entity-relationship-diagram.png>
+
 ## Requirements - Short Answer Questions
 
 1. What is the need (i.e. challenge) that you will be addressing in your project?
