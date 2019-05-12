@@ -97,28 +97,28 @@ Enablr was created using the following technology:
 Our design process for our Rails application started with us researching competitors of our website (eg. Kickstarter) and getting inspiration from their layouts and design. We also looked at UX/UI designs on dribble and other websites for inspiration and insight of current trends that would make our application look more modern. We then drew our wireframes in Figma and had a look at bootstrap components that we could integrate with the design.
 
 ### User stories
-https://trello.com/b/l7lYZTR0/enablr-app-user-stories
-<img src=./docs/user-stories.png>
+[User Stories](https://trello.com/b/l7lYZTR0/enablr-app-user-stories_)
+![user stories]("docs/user stories.png")
 
 ### A workflow diagram of the user journey/s.
-<img src=./docs/workflow-user-journey.png>
+![workflow user journey]("docs/workflow user journey.png")
 
 ### Wireframes
-https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1
-<img src=./docs/wireframes.png>
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node id=0%3A1)
+![wireframes]("docs/wireframes.png")
 
 ### Moodboard
-https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=11%3A0
-<img src=./docs/moodboard.png>
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node id=11%3A0)
+![moodboard]("docs/moodboard.png")
 
 ### Database Entity Relationship Diagrams
-<img src=./docs/database-entity-relationship-diagram.png>
+![database entity relationship diagram]("docs/database entity relationship diagram.png")
 
 ### Trello Screenshots
-<img src=./docs/trello1.png>
-<img src=./docs/trello2.png>
-<img src=./docs/trello4.png>
-<img src=./docs/trello9.png>
+![trello1]("docs/trello1.png")
+![trello2]("docs/trello2.png")
+![trello4]("docs/trello4.png")
+![trello9]("docs/trello9.png")
 
 ## Requirements - Short Answer Questions
 
