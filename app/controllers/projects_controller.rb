@@ -53,10 +53,10 @@ class ProjectsController < ApplicationController
     user = current_user
     project = Project.find(params[:id])
 
-    if Project.destroy(project)
-      redirect_to user, flash: { success: 'Project deleted successfully' }
+    if Project.destroy(project.id)
+      redirect_to user_profile_path(user.id), flash: { success: 'Project deleted successfully' }
     else
-      redirect_to user, flash: { error: project.errors.full_messages.to_sentence }
+      redirect_to user_profile_path(user.id), flash: { error: project.errors.full_messages.to_sentence }
     end
   end
 

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :unlimited_perk, class: Perk do
     name { Faker::Book.title }
-    minimum_amount { rand(1..1000) }
+    minimum_amount { rand(1..100) }
     amount_left { -1 }
     enablr_amount { rand(0..10) }
     project_id { create(:random).id }
@@ -10,7 +10,7 @@ FactoryBot.define do
 
   factory :limited_perk, class: Perk do
     name { Faker::Book.title }
-    minimum_amount { rand(1..1000) }
+    minimum_amount { rand(1..100) }
     enablr_amount { rand(0..10) }
     project_id { create(:random).id }
     amount_left { rand(2..10) }
@@ -19,7 +19,7 @@ FactoryBot.define do
 
   factory :random_perk_without_project, class: Perk do
     name { Faker::Book.title }
-    minimum_amount { rand(-1..5000) }
+    minimum_amount { rand(-1..500) }
     enablr_amount { rand(0..10) }
     amount_left { rand(0..100) }
     rewards { Faker::Lorem.paragraph }

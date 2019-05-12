@@ -1,25 +1,96 @@
-# README
+# Enablr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Heroku](https://enablr.herokuapp.com/)<br>
+[GitHub](https://github.com/en3on/enablr)
 
-Things you may want to cover:
+Enablr was created to allow for an easy way to get your startup funded by the public, in exchange for different 'Perks' that they can receive. Users can sign up as either a standard user or a fundraiser. **Fundraisers** can both create and enable projects, whereas **standard** users can only enable.
 
-* Ruby version
+![Logo](docs/logo.png)
 
-* System dependencies
+#### Features
+We offer the following features to users of Enablr:
 
-* Configuration
+* **Sign up** for a free account as either a **Standard** user or a **Fundraiser**
+![Sign Up](docs/Enablr4.png)
+* **Create projects** as a fundraiser
+![Create Project](docs/Enablr1.png)
+* **Enable** other's projects by pledging a chosen amount to a specific **perk**
+![Enable Project](docs/Enablr2.png)
+* **Comment** on any project that they have enabled
+![Comments](docs/Enablr.png)
+* **Upload multiple pictures** for their project<br>
+![Upload Multiple Pictures](docs/Enablr5.png)
+* **Edit / Delete** their own: 
+    * Comments
+    * Projects
+    * Perks
+    * Profile
+    * Pictures
+![Edit Project](docs/Enablr6.png)
+* **Request a refund** for their pledge, provided that the purchase was made _less than 30 days ago_
+![Refund Project](docs/Enablr3.png)
 
-* Database creation
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Database initialization
+### Prerequisites
+In order to run this app, the following software is needed
 
-* How to run the test suite
+[PostgreSQL](https://postgresql.org/download) is needed for the database<br>
+[Ruby](https://www.ruby-lang.org/) is needed in order to compile the app<br>
+Rails is used as the framework, and needs to be installed as a gem<br>
+```
+gem install rails
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment
+To run this app on your system, first create the database by running the following command: 
 
-* Deployment instructions
+```
+rails db:create
+```
+
+Migrate the changes to the database:
+
+```
+rails db:migrate
+```
+
+Optionally, seed the database with the provided seed file:
+
+```
+rails db:seed
+```
+
+To start up the server, run the following command:
+```
+rails server
+```
+
+And then navigate to ```http://localhost:3000```
+
+## Build With
+Enablr was created using the following technology:
+
+* Ruby _2.5.1_ - _Language_
+* Rails _5.2.3_ - _Web Framework_
+* HTML _5_ - _Language_
+* CSS _3_ - _Language_
+* PostgreSQL - _Database_
+* SASSC - _Language_
+* CoffeeScript - _Language_
+* Bootstrap - _Gem_
+* Jquery - _Language_
+* CanCanCan - _Authorization Gem_
+* Devise - _Authentication Gem_
+* FactoryBot - _Gem for easily creating instances of models for testing/ seeding_
+* Faker - _Gem for randomly generating data_
+* Amazon Web Services - _Storage services_
+* Heroku - _App Deployment_
+
+## Authors
+* Adam Ladell
+* Ryan Rico
 
 ## Requirements - Short Answer Questions
 
@@ -153,17 +224,121 @@ Belongs to Enablr
   Comments
   Belongs to Enablr
 
-14.  Provide your database schema design.
+14.  Provide your database schema design.<br>
+[ERD](https://dbdesigner.page.link/vrALugAC9QMVC94W6)
+```
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
 
-15.  Provide User stories for your App.
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
-16.  Provide Wireframes for your App.
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "project_enablr_id"
+    t.bigint "project_id"
+    t.index ["project_enablr_id"], name: "index_comments_on_project_enablr_id"
+    t.index ["project_id"], name: "index_comments_on_project_id"
+  end
 
+  create_table "perks", force: :cascade do |t|
+    t.integer "minimum_amount", null: false
+    t.boolean "unlimited", null: false
+    t.integer "enablr_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "project_id"
+    t.integer "amount_left"
+    t.string "name"
+    t.string "rewards"
+    t.datetime "estimated_delivery"
+    t.boolean "not_deliverable"
+    t.index ["project_id"], name: "index_perks_on_project_id"
+  end
+
+  create_table "project_enablrs", force: :cascade do |t|
+    t.integer "pledged_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.bigint "perk_id"
+    t.index ["perk_id"], name: "index_project_enablrs_on_perk_id"
+    t.index ["project_id"], name: "index_project_enablrs_on_project_id"
+    t.index ["user_id"], name: "index_project_enablrs_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.boolean "hardware", null: false
+    t.integer "current_amount", null: false
+    t.integer "target_amount", null: false
+    t.datetime "target_date", null: false
+    t.string "category", null: false
+    t.string "country", null: false
+    t.string "city", null: false
+    t.integer "backer_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.boolean "fundraiser", null: false
+    t.string "country", null: false
+    t.string "city", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "project_enablrs"
+  add_foreign_key "comments", "projects"
+  add_foreign_key "perks", "projects"
+  add_foreign_key "project_enablrs", "perks"
+  add_foreign_key "project_enablrs", "projects"
+  add_foreign_key "project_enablrs", "users"
+  add_foreign_key "projects", "users"
+```
+
+15.  Provide User stories for your App.<br>
+[User Stories](https://app.cardboardit.com/maps/guests/d014540bd3a65f92d4456912a2a6c1f690785c0aa2a4fa050d1b4a185eb595c2)
+16.  Provide Wireframes for your App.<br>
+[Figma](https://www.figma.com/file/O4XXIT8V1WFtg8Kl5QXLHTaP/Enablr?node-id=0%3A1)
 17.  Describe the way tasks are allocated and tracked in your project.
 
 The main way that tasks were allocated and tracked was through the use of the web application Trello. Using Trello, we were able to assign and see the tasks that each person was doing for the day, what they had completed and what tasks still needed to be done. We also set due dates and checklists for tasks to be more efficient and detailed. The use of colour coded labels also made it quicker to identify which aspect of the project the team member was working on at the time. When outside of class, we also communicated via the communication app Slack in case there were any concerns, questions or if we thought about tasks that needed to be added to the Trello page.
 
 18.  Discuss how Agile methodology is being implemented in your project.
+
 
 We used the following Agile Methodologies:
 
@@ -176,12 +351,27 @@ Workflows: Tasks were broken down into To Do, In Progress and Completed workflow
 Kanban: Tasks broken down into workflows and features were visualised in cards and columns using Trello.
 
 User Stories: Creating user stories to conceptualise features and requirements from the perspective of end-users.
-   
-19. Provide an overview and description of your Source control process.
+
+19.  Provide an overview and description of your Source control process.<br>
+
+For Enablr, we used GitHub to manage the source code of our project.
+When we had a new feature to work on, or a feature to patch, we would create a new branch and work on that feature in that branch.
+We would commit as soon as some small part of our feature worked and would push regularly.
+Upon completion of the feature, a pull-request would be created and the other member would approve the request and merge it to master.
 
 20. Provide an overview and description of your Testing process.
 
-21. Discuss and analyse requirements related to information system security.
+For testing, we employed a TDD work flow using RSpec, FactoryBot and Capybara.
+Failing tests were created before we implemented the function, to give us an idea of what we had to do next for our project.
+We ran tests on models, ensuring that only valid parameters would pass, as well as ensuring that the authorization for roles was working perfectly.
+Additionally, we set up some Capybara tests to validate the functionality of the UI.
+This method of testing minimized the amount of bugs we ran into and allowed us to focus more on feature development, than bug fixing.
+
+21.  Discuss and analyse requirements related to information system security.
+
+We have used Devise in our app, which securely encrypts and stores our users passwords.
+CanCanCan was used to disallow the destruction/ modification of other user's content.
+Parameters that are sensitive, were passed using hidden fields in forms, in order to not display it in the URL for safety reasons.
 
 22. Discuss methods you will use to protect information and data.
 
